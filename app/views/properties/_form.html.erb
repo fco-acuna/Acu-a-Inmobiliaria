@@ -1,0 +1,52 @@
+<%= form_with(model: property, multipart: true) do |form| %>
+  <% if property.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+        <% property.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <form>
+  <div class="form-group">
+    <label for="exampleFormControlInput1"><%= form.label :direccion, style: "display: block" %></label>
+    <%= form.text_field :direccion, class: "form-control", id: "exampleFormControlInput1", placeholder: "Calle y número" %>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1"><%= form.label :colonia, style: "display: block" %></label>
+    <%= form.text_field :colonia, class: "form-control", id: "exampleFormControlInput1", placeholder: "Colonia" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :cuartos, "Cuartos (Número)" %>
+    <%= form.number_field :cuartos, class: "form-control", placeholder: "Ingrese número de cuartos" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :banos, "Baños (Número)" %>
+    <%= form.number_field :banos, class: "form-control", placeholder: "Ingrese número de baños" %>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlInput1"><%= form.label :extras, style: "display: block" %></label>
+    <%= form.text_field :extras, class: "form-control", id: "exampleFormControlInput1", placeholder: "Extras: (Cochera, Terraza, Cuarto de Servicio, etc.)" %>
+  </div>  
+
+    <div class="form-group">
+      <%= form.label :precio, "Precio" %>
+      <%= form.number_field :precio, class: "form-control", placeholder: "Ingresa el precio" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :photo, 'Subir foto(s)' %>
+      <%= form.file_field :photos, multiple: true, accept:'image/*' %>
+    </div>
+
+  <div>
+    <%= form.button "Agregar nueva propiedad", type: "submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

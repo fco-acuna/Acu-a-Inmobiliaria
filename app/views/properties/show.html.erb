@@ -1,0 +1,85 @@
+<body style="background-image: url(/assets/background-shooow.png); background-position: center;
+background-repeat: no-repeat; 
+background-size: cover;">
+
+  <div style=" background: rgba(255, 255, 255, 0.13);
+                border-radius: 16px;
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(3px);
+                -webkit-backdrop-filter: blur(3px);
+                border: 1px solid rgba(255, 255, 255, 1);
+                margin: 50px;">
+    <header>
+        <h1 style="text-align: center;" ><%= @property.direccion %></h1>
+      </header>
+    
+      <main>
+        <section class="gallery">
+          <div>
+            <% @property.photos.each do |photo| %>
+              <%= image_tag photo%>
+            <% end %>
+          </div>
+        </section>
+    
+        <section class="details" style="text-align: center; margin: 15px;">
+          <h2>Más detalles:</h2>
+          
+          <div>
+            <div style="display: flex; justify-content: center;">
+              <div style="margin: 10px; display: flex;">
+                <span class="material-symbols-outlined">
+                  home_pin
+                </span>
+                <p style="font-weight: bold; border-bottom: solid 1px;"> Dirección: <%= @property.direccion %> </p>
+              </div>
+    
+              <div style="margin: 10px; display: flex;">
+                <span class="glyphicon glyphicon-tree-deciduous"></span>
+                <p style="font-weight: bold; border-bottom: solid 1px;">Colonia: <%= @property.colonia %></p> 
+              </div>
+            </div>
+            
+            <div style="display: flex; justify-content: center;">
+              <div style="margin: 10px; display: flex;">
+                <span class="material-symbols-outlined">
+                  door_front
+                  </span>
+                <p style="font-weight: bold; border-bottom: solid 1px;">Cuartos: <%= @property.cuartos %></p>
+              </div>
+    
+              <div style="margin: 10px; display: flex;">
+                <span class="material-symbols-outlined">
+                  wc
+                  </span>
+                <p style="font-weight: bold; border-bottom: solid 1px;">Baños: <%= @property.banos %></p>
+              </div>
+            </div>
+            
+            <div style="margin: 10px; display: flex; justify-content: center;">
+              <span class="material-symbols-outlined">
+                format_align_justify
+                </span>
+              <p style="font-weight: bold; border-bottom: solid 1px;">Extras: <%= @property.extras %></p>
+            </div>
+    
+            <div style="margin: 10px; display: flex; justify-content: center;">
+              <p style="font-size: 45px;">Precio: <%= number_to_currency(@property.precio, unit: "$", separator: ".", delimiter: ",") %></p>
+            </div>
+          </div>
+    
+          <button class="btn btn-info"> Reservar una cita </button>
+    
+    
+        </section>
+        <div style="text-align: end; padding: 15px;" >
+          <%= link_to "Regresar al catálogo", properties_path%>
+        </div>
+  </div>
+
+
+
+    </main>
+</body>
+
+
