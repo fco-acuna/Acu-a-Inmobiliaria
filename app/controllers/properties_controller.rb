@@ -1,5 +1,5 @@
 class PropertiesController < ApplicationController
-  
+  before_action :authenticate_account!, only: [:new, :create, :edit, :update, :destroy]
 
 
   # GET /properties or /properties.json
