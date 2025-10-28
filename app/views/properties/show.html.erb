@@ -15,12 +15,20 @@ background-size: cover;">
     
       <main>
         <section class="gallery">
-          <div>
-            <% @property.photos.each do |photo| %>
-              <%= image_tag photo%>
-            <% end %>
+          <div class="slider-container">
+            <div class="slider-track">
+              <% @property.photos.each do |photo| %>
+                <%= cl_image_tag photo.key,
+                      loading: "lazy",
+                      class: "slider-image" %>
+              <% end %>
+            </div>
+
+            <button class="slider-btn prev">‹</button>
+            <button class="slider-btn next">›</button>
           </div>
         </section>
+
     
         <section class="details" style="text-align: center; margin: 15px;">
           <h2>Más detalles:</h2>
