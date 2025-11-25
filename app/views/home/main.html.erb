@@ -1,0 +1,101 @@
+<div class="container">
+    <div class="hero_banner">
+        <div class="titulo">
+            <div class="logo_acra"></div>
+            <h3>Soluciones totales</h3>
+        </div>
+        <div class="imagen_bienvenida">
+            
+        </div>
+    </div>
+    <div class="about_banner">
+        <div class="banner_informacion">
+            <h1>Sobre Nosotros</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam minus similique a soluta illo fuga!</p>
+        </div>
+        <div class="banner_iconos">
+            <div class="iconos">
+                <div>
+                    <i class="fa-solid fa-city"></i>
+                </div>
+                <div class="icono_informacion">
+                    <p> +7 años de experiencia </p>
+                </div>
+            </div>
+            <div class="iconos">
+                <div>
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <div class="icono_informacion">
+                    <p> +40 clientes satisfechos </p>
+                </div>
+            </div>
+            <div class="iconos">
+                <div>
+                    <i class="fa-solid fa-house-chimney"></i>
+                </div>
+                <div class="icono_informacion">
+                    <p>+20 propiedades entregadas</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section_2">
+        <div class="preview_casas">
+            <% @properties.first(3).each do |property|%>
+                <div class="tarjeta_preview">
+                    <div class="imagen">
+                        <% if property.photos.attached? %>
+                        <%= image_tag(property.photos.first, class: "foto_casa") %>
+                        <% end %>
+                    </div>
+                    <div class="texto">
+                        <p><%= property.direccion %></p>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        <div class="boton">
+            <a href="">Ver catálogo completo</a>
+        </div>
+    </div>
+
+    <div class="reviews">
+        <div class="reviews_titulo">
+            <h1>Que dicen nuestros clientes</h1>
+        </div>
+        <div class="reviews_container">
+            <div class="review_tarjeta">
+                <p class="estrellas">*****</p>
+                <h3>Titulo</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea officiis, saepe quis architecto rerum blanditiis? Rerum at aspernatur veritatis exercitationem iure reiciendis minus non deserunt?</p>
+            </div>
+            <div class="review_tarjeta">
+                <p class="estrellas">*****</p>
+                <h3>Titulo</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea officiis, saepe quis architecto rerum blanditiis? Rerum at aspernatur veritatis exercitationem iure reiciendis minus non deserunt?</p>
+            </div>
+            <div class="review_tarjeta">
+                <p class="estrellas">*****</p>
+                <h3>Titulo</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea officiis, saepe quis architecto rerum blanditiis? Rerum at aspernatur veritatis exercitationem iure reiciendis minus non deserunt?</p>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="cta-vender">
+        <div class="cta-vender__content">
+            <h2>¿Quieres vender o traspasar tu casa?</h2>
+            <p>Contáctanos y te ayudamos a conseguir la mejor oferta.</p>
+
+            <a href="https://wa.me/521XXXXXXXXXX" target="_blank" class="cta-vender__btn">
+            Contáctanos por WhatsApp
+            </a>
+        </div>
+
+        <div class="cta-vender__image"></div>
+    </section>
+</div>
+
+
