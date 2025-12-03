@@ -1,13 +1,13 @@
 <div class="header_container">
-    <div class="header_logo">
-
-    </div>
+    <%= link_to root_path do %>
+        <div class="header_logo"></div>
+    <% end %>
 
     <div class="header_catalogo_link">
-        <a href="">Catálogo</a>
+        <%= link_to "Catálogo", properties_path %>
     </div>
 
     <div class="contactanos">
-        <a href="">Contáctanos</a>
+        <a href="https://wa.me/524777309939" target="_blank">Contáctanos</a>
     </div>
 </div>

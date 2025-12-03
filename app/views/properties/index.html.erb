@@ -1,40 +1,43 @@
-<body style="background-image: url(/assets/background-index.jpg); background-position: center;
-background-repeat: no-repeat; 
-background-size: cover;">
+<body>
   <div style="padding: 10px;">
     <div style="text-align: right; margin: 10px;">
       <% if account_signed_in? %>
         <%= link_to "Cerrar Sesión", destroy_account_session_path, data: { turbo_method: :delete }, class: "btn btn-primary" %>
       <% else %>
-        <%= link_to "Log-In", new_account_session_path, class: "btn btn-primary" %>
+        <%= link_to "Log-In", new_account_session_path, class: "boton" %>
       <% end %>
     </div>
-    <h1>Propiedades disponibles</h1>
+    <h1 style="text-align: center;">Propiedades disponibles</h1>
     <% if account_signed_in? %>
-      <%= link_to "Nueva Propiedad", new_property_path, class:"btn btn-info" %>
+      <%= link_to "Nueva Propiedad", new_property_path, class:"boton" %>
     <% end %> 
   </div>
   <div class="row" style="padding: 25px;" >
     <% @properties.each do |property| %>
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail" style="
-      background: rgba(255, 255, 255, 0.13);
-      border-radius: 8px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);">
+        background: rgba(255, 255, 255, 0.13);
+        border-radius: 8px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        display: flex;
+        flex-direction: column;
+      ">
         <div class="index_photo">
           <% if property.photos.attached? %>
             <%= image_tag property.photos.first, alt: "foto de la propiedad", class: "foto_casa" %>
           <% end %>
         </div>
         <div class="caption">
-          <h3></h3>
           <p>Dirección: <%= property.direccion %></p>
           <p>Colonia: <%= property.colonia %></p>
           <p>Precio: <%= number_to_currency(property.precio, unit: "$", separator: ".", delimiter: ",") %></p>
-          <p><%= link_to "Ver propiedad", property_path(property.id), class: "btn btn-primary"%></p>
-          <a href="#" class="btn btn-default" role="button">Reservar Cita</a></p>
+
+          <div class="botones_index">
+            <p><%= link_to "Ver propiedad", property_path(property.id)%></p>
+            <p><a href="https://wa.me/524777309939" class="boton">Reservar Cita</a></p>
+          </div>
         </div>
       </div>
     </div>

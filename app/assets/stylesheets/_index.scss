@@ -1,3 +1,27 @@
 .foto_casa {
     border-radius: 8px;
 }
+
+.botones_index {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boton {
+    display: inline-block;
+    background-color: var(--azul-base);
+    color: var(--blanco);
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    margin: 0px;
+}
+
+.boton:hover {
+    background-color: var(--dorado);
+    color: var(--negro);
+}
