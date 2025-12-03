@@ -1,6 +1,10 @@
-<body style="background-image: url(/assets/background-shooow.png); background-position: center;
+<body style=" background-position: center;
 background-repeat: no-repeat; 
 background-size: cover;">
+
+  <div style="margin: 20px;">
+    <h1 style="text-align: center;" ><%= @property.direccion.capitalize %></h1>
+  </div>
 
   <div style=" background: rgba(255, 255, 255, 0.13);
                 border-radius: 16px;
@@ -8,13 +12,11 @@ background-size: cover;">
                 backdrop-filter: blur(3px);
                 -webkit-backdrop-filter: blur(3px);
                 border: 1px solid rgba(255, 255, 255, 1);
-                margin: 50px;">
-    <header>
-        <h1 style="text-align: center;" ><%= @property.direccion %></h1>
-      </header>
+                margin: 25px;">
     
       <main>
-        <section class="gallery">
+        <div class="show_container" style="display: flex; padding: 20px;">
+          <section class="gallery">
           <div class="slider-container">
             <div class="slider-track">
               <% @property.photos.each do |photo| %>
@@ -30,11 +32,11 @@ background-size: cover;">
         </section>
 
     
-        <section class="details" style="text-align: center; margin: 15px;">
+        <section class="details" style="text-align: center; margin: 8px;">
           <h2>Más detalles:</h2>
           
           <div>
-            <div style="display: flex; justify-content: center;">
+            <div style="justify-content: center;">
               <div style="margin: 10px; display: flex;">
                 <span class="material-symbols-outlined">
                   home_pin
@@ -48,7 +50,7 @@ background-size: cover;">
               </div>
             </div>
             
-            <div style="display: flex; justify-content: center;">
+            <div style="justify-content: center;">
               <div style="margin: 10px; display: flex;">
                 <span class="material-symbols-outlined">
                   door_front
@@ -64,7 +66,7 @@ background-size: cover;">
               </div>
             </div>
             
-            <div style="margin: 10px; display: flex; justify-content: center;">
+            <div style="margin: 10px; display: flex;">
               <span class="material-symbols-outlined">
                 format_align_justify
                 </span>
@@ -80,6 +82,8 @@ background-size: cover;">
     
     
         </section>
+        </div>
+        
         <div style="text-align: end; padding: 15px;" >
           <%= link_to "Regresar al catálogo", properties_path%>
         </div>

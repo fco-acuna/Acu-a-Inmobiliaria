@@ -51,7 +51,7 @@ p {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 80px auto;
+    margin: 40px auto;
     width: 90%;
     gap: 60px;
 }
@@ -116,7 +116,7 @@ p {
     justify-content: space-around;
     flex-wrap: wrap;
     gap: 25px;
-    margin-top: 50px;
+    margin-top: 25px;
 }
 
 .tarjeta_preview {
@@ -157,8 +157,8 @@ p {
 }
 
 /* 🔹 Botón */
-.boton {
-    margin-top: 40px;
+.boton_catalogo {
+    margin-top: 20px;
 }
 
 .boton a {
@@ -181,7 +181,7 @@ p {
 /* 🔹 Reviews Section */
 .reviews {
     background-color: var(--gris-claro);
-    padding: 80px 0;
+    padding: 40px 0;
     text-align: center;
 }
 
@@ -219,11 +219,6 @@ p {
     color: var(--azul-base);
     margin-bottom: 10px;
     margin-top: 0px;
-}
-
-.estrellas {
-    font-size: 4rem !important;
-    margin-bottom: 0px;
 }
 
 .review_tarjeta p {
@@ -291,6 +286,7 @@ p {
     background-size: cover;
     background-position: center;
     min-height: 300px;
+    border-radius: 8px;
 }
 
 /* 🔹 Footer */
@@ -330,7 +326,7 @@ p {
 }
 
 .header_logo {
-    background-image: image_url("logo-acra.png");
+    background-image: image_url("acra_header.png");
     height: 6vh;
     width: 100px;
     background-repeat: no-repeat;
@@ -340,4 +336,8 @@ p {
 .header_container a {
     text-decoration: none;
     color: black;
+}
+
+.fa-star {
+    font-size: 20px;
 }

@@ -55,8 +55,8 @@
                 </div>
             <% end %>
         </div>
-        <div class="boton">
-            <a href="">Ver catálogo completo</a>
+        <div class="boton_catalogo">
+            <%= link_to "Ver Catálogo Completo", properties_path, class: "boton" %>
         </div>
     </div>
 
@@ -66,17 +66,29 @@
         </div>
         <div class="reviews_container">
             <div class="review_tarjeta">
-                <p class="estrellas">*****</p>
+                <p class="estrellas">
+                    <% 5.times do %>
+                        <i class="fa-solid fa-star"></i>
+                    <% end %>
+                </p>
                 <h3>Titulo</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea officiis, saepe quis architecto rerum blanditiis? Rerum at aspernatur veritatis exercitationem iure reiciendis minus non deserunt?</p>
             </div>
             <div class="review_tarjeta">
-                <p class="estrellas">*****</p>
+                <p class="estrellas">
+                    <% 5.times do %>
+                        <i class="fa-solid fa-star"></i>
+                    <% end %>
+                </p>
                 <h3>Titulo</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea officiis, saepe quis architecto rerum blanditiis? Rerum at aspernatur veritatis exercitationem iure reiciendis minus non deserunt?</p>
             </div>
             <div class="review_tarjeta">
-                <p class="estrellas">*****</p>
+                <p class="estrellas">
+                    <% 5.times do %>
+                        <i class="fa-solid fa-star"></i>
+                    <% end %>
+                </p>
                 <h3>Titulo</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea officiis, saepe quis architecto rerum blanditiis? Rerum at aspernatur veritatis exercitationem iure reiciendis minus non deserunt?</p>
             </div>
@@ -89,7 +101,7 @@
             <h2>¿Quieres vender o traspasar tu casa?</h2>
             <p>Contáctanos y te ayudamos a conseguir la mejor oferta.</p>
 
-            <a href="https://wa.me/521XXXXXXXXXX" target="_blank" class="cta-vender__btn">
+            <a href="https://wa.me/524777309939" target="_blank" class="cta-vender__btn">
             Contáctanos por WhatsApp
             </a>
         </div>
