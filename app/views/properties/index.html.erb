@@ -2,14 +2,12 @@
   <div style="padding: 10px;">
     <div style="text-align: right; margin: 10px;">
       <% if account_signed_in? %>
-        <%= link_to "Cerrar Sesión", destroy_account_session_path, data: { turbo_method: :delete }, class: "btn btn-primary" %>
-      <% else %>
-        <%= link_to "Log-In", new_account_session_path, class: "boton" %>
+        <%= link_to "Cerrar Sesión", destroy_account_session_path, data: { turbo_method: :delete }, class: "boton_login" %>
       <% end %>
     </div>
     <h1 style="text-align: center;">Propiedades disponibles</h1>
     <% if account_signed_in? %>
-      <%= link_to "Nueva Propiedad", new_property_path, class:"boton" %>
+      <%= link_to "Nueva Propiedad", new_property_path, class:"boton_login" %>
     <% end %> 
   </div>
   <div class="row" style="padding: 25px;" >
