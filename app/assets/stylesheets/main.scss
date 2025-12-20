@@ -1,7 +1,6 @@
 /* 🎨 Paleta principal */
 :root {
     --azul-base: #002b5b;
-    --dorado: #002b5b;
     --negro: #222222;
     --gris-claro: #f8f9fa;
     --blanco: #ffffff;
@@ -35,7 +34,7 @@ p {
     justify-content: center;
     flex-direction: column;
     background-color: var(--gris-claro);
-    border-bottom: 2px solid var(--dorado);
+    border-bottom: 2px solid var(--azul-base);
 }
 
 .hero_banner h3 {
@@ -62,7 +61,7 @@ p {
 
 .banner_informacion h1 {
     color: var(--azul-base);
-    border-left: 4px solid var(--dorado);
+    border-left: 4px solid var(--azul-base);
     padding-left: 12px;
     font-size: 2rem;
     margin-bottom: 16px;
@@ -86,7 +85,7 @@ p {
 }
 
 .iconos i {
-    color: var(--dorado);
+    color: var(--azul-base);
     font-size: 2rem;
     margin-bottom: 5px;
 }
@@ -106,7 +105,7 @@ p {
 .section2_titulo h1 {
     font-size: 2.2rem;
     color: var(--azul-base);
-    border-bottom: 2px solid var(--dorado);
+    border-bottom: 2px solid var(--azul-base);
     display: inline-block;
     padding-bottom: 6px;
 }
@@ -174,7 +173,7 @@ p {
 }
 
 .boton a:hover {
-    background-color: var(--dorado);
+    background-color: var(--azul-base);
     color: var(--negro);
 }
 
@@ -202,7 +201,7 @@ p {
 }
 
 .review_tarjeta {
-    border: 1px solid var(--dorado);
+    border: 1px solid var(--azul-base);
     background-color: var(--blanco);
     padding: 25px;
     border-radius: 8px;
@@ -341,4 +340,73 @@ p {
 
 .fa-star {
     font-size: 20px;
+}
+
+
+// Sección de Responsiveness // 
+
+/* Agregar al final del CSS */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .about_banner {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .banner_informacion {
+        width: 100%;
+    }
+    
+    .banner_iconos {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .preview_casas {
+        flex-direction: column;
+    }
+    
+    .tarjeta_preview {
+        width: 100%;
+    }
+    
+    .reviews_container {
+        flex-direction: column;
+    }
+    
+    .review_tarjeta {
+        width: 100%;
+    }
+    
+    .cta-vender {
+        flex-direction: column;
+    }
+    
+    .cta-vender__btn {
+        width: 100%;
+    }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+    .hero_banner h3 {
+        font-size: 1.8rem;
+    }
+    
+    .banner_informacion h1 {
+        font-size: 1.5rem;
+    }
+    
+    .reviews_titulo h1 {
+        font-size: 1.5rem;
+    }
+    
+    .cta-vender__content {
+        padding: 30px 20px;
+    }
+    
+    .cta-vender__content h2 {
+        font-size: 1.5rem;
+    }
 }

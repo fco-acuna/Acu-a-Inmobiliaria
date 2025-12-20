@@ -1,75 +1,93 @@
-<main>
-  <div class="show_container">
-    <section class="gallery">
-      <div class="slider-container">
-        <div class="slider-track">
-          <% @property.photos.each do |photo| %>
-            <%= cl_image_tag photo.key,
-                  loading: "lazy",
-                  class: "slider-image" %>
-          <% end %>
-        </div>
+<body class="property-show-page">
+  <div class="property-show-header">
+    <h1 class="property-show-title"><%= @property.direccion.capitalize %></h1>
+  </div>
 
-        <button class="slider-btn prev">‹</button>
-        <button class="slider-btn next">›</button>
+  <div class="property-show-wrapper">
+    <main class="property-show-main">
+      <div class="show_container">
+        <section class="gallery">
+          <div class="slider-container">
+            <div class="slider-track">
+              <% @property.photos.each do |photo| %>
+                <%= cl_image_tag photo.key,
+                      loading: "lazy",
+                      alt: "Foto de la propiedad en #{@property.direccion}",
+                      class: "slider-image" %>
+              <% end %>
+            </div>
+
+            <button class="slider-btn prev" aria-label="Imagen anterior">‹</button>
+            <button class="slider-btn next" aria-label="Siguiente imagen">›</button>
+          </div>
+        </section>
+
+        <section class="details">
+          <h2 class="details-title">Más detalles:</h2>
+          
+          <div class="details-content">
+            <div class="details-list">
+              <div class="detail-item">
+                <span class="material-symbols-outlined">home_pin</span>
+                <p><strong>Dirección:</strong> <%= @property.direccion %></p>
+              </div>
+
+              <div class="detail-item">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <p><strong>Colonia:</strong> <%= @property.colonia %></p>
+              </div>
+
+              <div class="detail-item">
+                <span class="material-symbols-outlined">door_front</span>
+                <p><strong>Cuartos:</strong> <%= @property.cuartos %></p>
+              </div>
+
+              <div class="detail-item">
+                <span class="material-symbols-outlined">wc</span>
+                <p><strong>Baños:</strong> <%= @property.banos %></p>
+              </div>
+
+              <div class="detail-item detail-item--extras">
+                <span class="material-symbols-outlined">format_align_justify</span>
+                <p><strong>Extras:</strong> <%= @property.extras %></p>
+              </div>
+
+              <div class="detail-price">
+                <p><%= number_to_currency(@property.precio, unit: "$", separator: ".", delimiter: ",") %></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="details-footer">
+            <% whatsapp_msg = "Hola, me interesa reservar una cita para la propiedad en #{@property.direccion}" %>
+            <a href="https://wa.me/524777309939?text=<%= URI.encode_www_form_component(whatsapp_msg) %>" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="btn-reservar">
+              <i class="fa-brands fa-whatsapp"></i>
+              Reservar una cita
+            </a>
+          </div>
+        </section>
       </div>
-    </section>
-
-    <section class="details">
-      <h2>Más detalles:</h2>
       
-      <div class="details-content">
-        <div>
-          <div style="margin: 10px; display: flex; justify-content: center;">
-            <span class="material-symbols-outlined">home_pin</span>
-            <p style="font-weight: bold; border-bottom: solid 1px; margin-left: 8px;"> 
-              Dirección: <%= @property.direccion %> 
-            </p>
+      <div class="property-show-footer">
+        <%= link_to properties_path, class: "btn-back" do %>
+          <i class="fa-solid fa-arrow-left"></i>
+          Regresar al catálogo
+        <% end %>
+        
+        <% if account_signed_in? %>
+          <div class="admin-actions-show">
+            <%= link_to "Editar", edit_property_path(@property), class: "btn-edit" %>
+            <%= button_to "Eliminar", 
+                property_path(@property), 
+                method: :delete, 
+                data: { confirm: "¿Estás seguro de eliminar esta propiedad?" },
+                class: "btn-delete" %>
           </div>
-
-          <div style="margin: 10px; display: flex; justify-content: center;">
-            <span class="glyphicon glyphicon-tree-deciduous"></span>
-            <p style="font-weight: bold; border-bottom: solid 1px; margin-left: 8px;">
-              Colonia: <%= @property.colonia %>
-            </p> 
-          </div>
-
-          <div style="margin: 10px; display: flex; justify-content: center;">
-            <span class="material-symbols-outlined">door_front</span>
-            <p style="font-weight: bold; border-bottom: solid 1px; margin-left: 8px;">
-              Cuartos: <%= @property.cuartos %>
-            </p>
-          </div>
-
-          <div style="margin: 10px; display: flex; justify-content: center;">
-            <span class="material-symbols-outlined">wc</span>
-            <p style="font-weight: bold; border-bottom: solid 1px; margin-left: 8px;">
-              Baños: <%= @property.banos %>
-            </p>
-          </div>
-
-          <div style="margin: 10px; display: flex; justify-content: center;">
-            <span class="material-symbols-outlined">format_align_justify</span>
-            <p style="font-weight: bold; border-bottom: solid 1px; margin-left: 8px;">
-              Extras: <%= @property.extras %>
-            </p>
-          </div>
-
-          <div style="margin: 20px 10px;">
-            <p style="font-size: 45px;">
-              Precio: <%= number_to_currency(@property.precio, unit: "$", separator: ".", delimiter: ",") %>
-            </p>
-          </div>
-        </div>
+        <% end %>
       </div>
-
-      <div class="details-footer">
-        <button class="btn btn-info">Reservar una cita</button>
-      </div>
-    </section>
+    </main>
   </div>
-  
-  <div style="text-align: end; padding: 15px;">
-    <%= link_to "Regresar al catálogo", properties_path %>
-  </div>
-</main>
+</body>

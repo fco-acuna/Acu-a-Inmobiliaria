@@ -1,0 +1,658 @@
+/* ==============================================
+   ✏️ NEW/EDIT - Formulario de propiedad
+============================================== */
+
+.property-form-page {
+  background-image: image-url("background-neeew.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.property-form-container {
+  margin: 25px auto;
+  max-width: 1000px;
+  padding: 0 20px;
+}
+
+.property-form-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.property-form-header h1 {
+  color: var(--azul-base);
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.property-form-card {
+  display: flex;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+}
+
+.property-form-content {
+  margin: 40px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.property-form-footer {
+  margin-top: 30px;
+  text-align: center;
+}
+
+/* Estilos del formulario */
+.property-form-content .field {
+  margin-bottom: 20px;
+}
+
+.property-form-content label {
+  display: block;
+  font-weight: 600;
+  color: var(--azul-base);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.property-form-content input[type="text"],
+.property-form-content input[type="number"],
+.property-form-content input[type="email"],
+.property-form-content input[type="file"],
+.property-form-content textarea,
+.property-form-content select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: var(--blanco);
+  font-family: 'Poppins', sans-serif;
+}
+
+.property-form-content input:focus,
+.property-form-content textarea:focus,
+.property-form-content select:focus {
+  outline: none;
+  border-color: var(--azul-base);
+  box-shadow: 0 0 0 3px rgba(0, 43, 91, 0.1);
+}
+
+.property-form-content textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Botón de submit */
+.property-form-content .actions {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.property-form-content input[type="submit"],
+.property-form-content button[type="submit"] {
+  background-color: var(--azul-base);
+  color: var(--blanco);
+  padding: 14px 40px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 300px;
+}
+
+.property-form-content input[type="submit"]:hover,
+.property-form-content button[type="submit"]:hover {
+  background-color: var(--dorado);
+  color: var(--negro);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Mensajes de error */
+.property-form-content .field_with_errors {
+  display: inline-block;
+  width: 100%;
+}
+
+.property-form-content .field_with_errors input,
+.property-form-content .field_with_errors textarea,
+.property-form-content .field_with_errors select {
+  border-color: #dc3545;
+}
+
+#error_explanation {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 25px;
+  color: #721c24;
+}
+
+#error_explanation h2 {
+  font-size: 1.2rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #721c24;
+}
+
+#error_explanation ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+#error_explanation li {
+  margin-bottom: 5px;
+}
+
+/* Preview de imágenes (si usas múltiples fotos) */
+.image-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.image-preview img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+}
+
+/* ==============================================
+   📱 RESPONSIVE - Formulario
+============================================== */
+
+@media (max-width: 768px) {
+  .property-form-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .property-form-content {
+    margin: 25px 20px;
+  }
+
+  .property-form-container {
+    margin: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .property-form-page {
+    background-attachment: scroll;
+  }
+
+  .property-form-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .property-form-content {
+    margin: 20px 15px;
+  }
+
+  .property-form-content input[type="text"],
+  .property-form-content input[type="number"],
+  .property-form-content textarea,
+  .property-form-content select {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+
+  .property-form-content input[type="submit"],
+  .property-form-content button[type="submit"] {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
+
+/* ==============================================
+   👁️ SHOW - Detalle de propiedad
+============================================== */
+
+.property-show-page {
+  min-height: 100vh;
+}
+
+.property-show-header {
+  padding: 20px;
+  text-align: center;
+}
+
+.property-show-title {
+  color: var(--azul-base);
+  font-size: 2rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.property-show-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 25px;
+}
+
+.property-show-main {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+/* Contenedor principal */
+.show_container {
+  display: flex;
+  padding: 30px;
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* ==============================================
+   🖼️ GALERÍA - SLIDER
+============================================== */
+
+.gallery {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  height: 70vh;
+  min-height: 400px;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.4s ease;
+  height: 100%;
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+  z-index: 10;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.slider-btn.prev {
+  left: 15px;
+}
+
+.slider-btn.next {
+  right: 15px;
+}
+
+/* ==============================================
+   📋 DETALLES DE LA PROPIEDAD
+============================================== */
+
+.details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  height: 70vh;
+  min-height: 400px;
+}
+
+.details-title {
+  color: var(--azul-base);
+  font-size: 1.8rem;
+  margin: 0 0 25px 0;
+  text-align: center;
+  border-bottom: 3px solid var(--dorado);
+  padding-bottom: 15px;
+}
+
+.details-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px;
+  background: var(--gris-claro);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.detail-item:hover {
+  background: #e9ecef;
+  transform: translateX(5px);
+}
+
+.detail-item span,
+.detail-item i {
+  color: var(--azul-base);
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.detail-item p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--negro);
+  border-bottom: 2px solid var(--azul-base);
+  padding-bottom: 5px;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.detail-item strong {
+  color: var(--azul-base);
+  margin-right: 5px;
+}
+
+.detail-item--extras {
+  align-items: flex-start;
+}
+
+.detail-item--extras p {
+  border-bottom: none;
+  padding: 0;
+}
+
+.detail-price {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.detail-price p {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--dorado);
+  margin: 0;
+}
+
+/* ==============================================
+   🔘 BOTONES Y FOOTER
+============================================== */
+
+.details-footer {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 2px solid var(--gris-claro);
+}
+
+.btn-reservar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background-color: #25D366;
+  color: var(--blanco);
+  text-decoration: none;
+  padding: 16px 24px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-reservar:hover {
+  background-color: #128C7E;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  color: var(--blanco);
+}
+
+.btn-reservar i {
+  font-size: 1.5rem;
+}
+
+.property-show-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background: var(--gris-claro);
+  border-top: 1px solid #e0e0e0;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--azul-base);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: white;
+  border: 2px solid var(--azul-base);
+}
+
+.btn-back:hover {
+  background: var(--azul-base);
+  color: var(--blanco);
+  transform: translateX(-5px);
+}
+
+.admin-actions-show {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-edit,
+.btn-delete {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.btn-edit {
+  background-color: #ffc107;
+  color: var(--negro);
+}
+
+.btn-edit:hover {
+  background-color: #e0a800;
+  transform: translateY(-2px);
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: var(--blanco);
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+
+/* ==============================================
+   📱 RESPONSIVE - SHOW
+============================================== */
+
+@media (max-width: 1024px) {
+  .show_container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .details {
+    height: auto;
+    min-height: auto;
+    margin-top: 20px;
+  }
+
+  .slider-container {
+    height: 50vh;
+  }
+
+  .detail-price p {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .property-show-title {
+    font-size: 1.5rem;
+  }
+
+  .property-show-wrapper {
+    padding: 15px;
+  }
+
+  .show_container {
+    padding: 15px;
+  }
+
+  .details-title {
+    font-size: 1.5rem;
+  }
+
+  .slider-container {
+    height: 40vh;
+    min-height: 300px;
+  }
+
+  .slider-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    padding: 10px 15px;
+  }
+
+  .slider-btn.prev {
+    left: 10px;
+  }
+
+  .slider-btn.next {
+    right: 10px;
+  }
+
+  .detail-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .detail-item p {
+    text-align: center;
+  }
+
+  .detail-price p {
+    font-size: 1.8rem;
+  }
+
+  .property-show-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .admin-actions-show {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .property-show-header {
+    padding: 15px 10px;
+  }
+
+  .property-show-title {
+    font-size: 1.2rem;
+  }
+
+  .details-title {
+    font-size: 1.3rem;
+  }
+
+  .detail-item span,
+  .detail-item i {
+    font-size: 1.2rem;
+  }
+
+  .detail-item p {
+    font-size: 0.9rem;
+  }
+
+  .detail-price p {
+    font-size: 1.5rem;
+  }
+
+  .btn-reservar {
+    font-size: 1rem;
+    padding: 14px 20px;
+  }
+}

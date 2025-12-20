@@ -1,25 +1,17 @@
-<body style="background-image: url(/assets/background-neeew.png); background-position: center;
-background-repeat: no-repeat; 
-background-size: cover;">
-  <div style="margin: 25px;">
-    <h1>Agregar una propiedad</h1>
+<body class="property-form-page">
+  <div class="property-form-container">
+    <header class="property-form-header">
+      <h1><%= @property.new_record? ? "Agregar una propiedad" : "Editar propiedad" %></h1>
+    </header>
     
-    <div style="display: flex; justify-content: center;
-    background: rgba(255, 255, 255, 0.13);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
-    border: 1px solid rgba(255, 255, 255, 1);">
-      <div style="margin: 25px; width: 40%;" >
+    <div class="property-form-card">
+      <div class="property-form-content">
         <%= render "form", property: @property %>
       </div>
     </div>
     
-    <br>
-    
-    <div>
-      <%= link_to "Regresar a página principal", properties_path, class: "btn btn-default" %>
+    <div class="property-form-footer">
+      <%= link_to "Regresar al catálogo", properties_path %>
     </div>
   </div>
 </body>
