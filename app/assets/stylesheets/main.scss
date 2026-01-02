@@ -32,25 +32,275 @@ p {
     color: var(--negro);
 }
 
-/* 🔹 Hero Banner */
 .hero_banner {
-    height: 60vh;
-    min-height: 400px; /* 🔴 AÑADIDO: Altura mínima */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: var(--gris-claro);
-    border-bottom: 2px solid var(--azul-base);
-    padding: 20px; /* 🔴 AÑADIDO: Padding para móviles */
+  height: 65vh; /* 🔴 REDUCIDO: De 70vh a 65vh */
+  min-height: 450px; /* 🔴 REDUCIDO: De 500px a 450px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gris-claro);
+  border-bottom: 3px solid var(--azul-base);
+  padding: 30px 20px; /* 🔴 REDUCIDO: De 40px a 30px */
+  position: relative;
+  overflow: hidden;
 }
 
-.hero_banner h3 {
-    font-size: clamp(1.8rem, 4vw, 2.5rem); /* 🔴 OPTIMIZADO: Escala fluida */
-    color: var(--azul-base);
-    letter-spacing: 1px;
+/* Contenedor principal del hero */
+.hero_content {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 🔴 CAMBIADO: De space-between a center */
+  max-width: 1200px; /* 🔴 REDUCIDO: De 1400px a 1200px */
+  width: 90%;
+  gap: 50px; /* 🔴 AUMENTADO: De 40px a 50px - mejor balance */
+}
+
+/* Logo */
+.logo_contuksa {
+  height: 350px; /* 🔴 REDUCIDO: De 400px a 350px */
+  width: 350px; /* 🔴 REDUCIDO: De 400px a 350px */
+  min-width: 280px; /* 🔴 REDUCIDO: De 300px a 280px */
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: image-url("contuksa_logo.png");
+  flex-shrink: 0;
+}
+
+/* Servicios */
+.hero_services {
+  display: flex; /* 🔴 AÑADIDO: Faltaba esto */
+  flex-direction: column; /* 🔴 AÑADIDO: Verticalmente apilados */
+  gap: 18px; /* 🔴 AÑADIDO: Espacio entre items */
+}
+
+.service_item {
+  background: var(--blanco);
+  padding: 18px 25px; /* 🔴 OPTIMIZADO: Mejor proporción */
+  border-radius: 10px; /* 🔴 REDUCIDO: De 12px a 10px */
+  text-align: center;
+  min-width: 220px; /* 🔴 AJUSTADO: De 200px a 220px */
+  max-width: 280px; /* 🔴 AUMENTADO: De 250px a 280px */
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1); /* 🔴 AJUSTADO: Sombra más sutil */
+  border: 2px solid var(--gris-claro); /* 🔴 CAMBIADO: Borde visible sutil */
+  display: flex; /* 🔴 AÑADIDO */
+  align-items: center; /* 🔴 AÑADIDO */
+  gap: 15px; /* 🔴 AÑADIDO: Espacio entre icono y texto */
+}
+
+.service_icon {
+  width: 55px; /* 🔴 REDUCIDO: De 60px a 55px */
+  height: 55px; /* 🔴 REDUCIDO: De 60px a 55px */
+  margin: 0; /* 🔴 CAMBIADO: Sin margin auto */
+  background: linear-gradient(135deg, var(--azul-base) 0%, #003d7a 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* 🔴 AÑADIDO: No se encoge */
+}
+
+.service_icon i {
+  font-size: 1.6rem; /* 🔴 REDUCIDO: De 2rem a 1.6rem */
+  color: var(--blanco);
+}
+
+.service_item h3 {
+  color: var(--azul-base);
+  font-size: 1.4rem; /* 🔴 SIMPLIFICADO: Tamaño fijo */
+  margin: 0; /* 🔴 SIMPLIFICADO */
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-align: left; /* 🔴 AÑADIDO: Alineado a la izquierda */
+}
+
+/* ==============================================
+   📱 RESPONSIVE
+============================================== */
+
+@media (max-width: 1024px) {
+  .hero_content {
+    flex-direction: column;
+    gap: 35px;
+  }
+
+  .logo_contuksa {
+    height: 280px;
+    width: 280px;
+    min-width: 240px;
+  }
+
+  .hero_services {
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero_banner {
+    height: auto;
+    min-height: auto;
+    padding: 35px 20px;
+  }
+
+  .hero_content {
+    gap: 30px;
+  }
+
+  .logo_contuksa {
+    height: 240px;
+    width: 240px;
+    min-width: 200px;
+  }
+
+  .hero_services {
+    gap: 15px;
+  }
+
+  .service_item {
+    max-width: 100%;
+    padding: 16px 20px;
+  }
+
+  .service_icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .service_icon i {
+    font-size: 1.4rem;
+  }
+
+  .service_item h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero_banner {
+    padding: 25px 15px;
+  }
+
+  .logo_contuksa {
+    height: 200px;
+    width: 200px;
+    min-width: 180px;
+  }
+
+  .service_item {
+    padding: 14px 18px;
+    flex-direction: column;
     text-align: center;
-    margin: 0;
+  }
+
+  .service_item h3 {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+
+  .service_icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 8px;
+  }
+
+  .service_icon i {
+    font-size: 1.3rem;
+  }
+}
+
+/* ==============================================
+   📱 RESPONSIVE - Hero Banner
+============================================== */
+
+@media (max-width: 1024px) {
+  .hero_content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .logo_contuksa {
+    height: 300px;
+    width: 300px;
+    min-width: 250px;
+  }
+
+  .hero_services {
+    width: 100%;
+    gap: 20px;
+  }
+
+  .service_item {
+    flex: 1 1 calc(33.333% - 20px);
+    min-width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero_banner {
+    height: auto;
+    min-height: auto;
+    padding: 40px 20px;
+  }
+
+  .hero_content {
+    gap: 30px;
+  }
+
+  .logo_contuksa {
+    height: 250px;
+    width: 250px;
+    min-width: 200px;
+  }
+
+  .hero_services {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .service_item {
+    max-width: 100%;
+    min-width: auto;
+  }
+
+  .service_icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .service_icon i {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero_banner {
+    padding: 30px 15px;
+  }
+
+  .logo_contuksa {
+    height: 200px;
+    width: 200px;
+    min-width: 180px;
+  }
+
+  .service_item {
+    padding: 25px 20px;
+  }
+
+  .service_icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+  }
+
+  .service_icon i {
+    font-size: 1.5rem;
+  }
+
+  .service_item h3 {
+    margin-bottom: 8px;
+  }
 }
 
 /* 🔹 About Section */
@@ -267,65 +517,196 @@ p {
 
 /* 🔹 CTA Vender */
 .cta-vender {
-    display: flex;
-    align-items: stretch;
-    background: white;
-    overflow: hidden;
-    margin: 60px auto; /* 🔴 AUMENTADO */
-    max-width: 1100px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* 🔴 AÑADIDO */
-    border-radius: 12px; /* 🔴 AÑADIDO */
+  display: flex;
+  align-items: center;
+  background: var(--blanco);
+  overflow: hidden;
+  margin: 80px auto 60px; /* 🔴 AUMENTADO: Más espacio arriba */
+  max-width: 1200px; /* 🔴 REDUCIDO: De 1100px a 1200px */
+  border-radius: 16px; /* 🔴 AUMENTADO: De 12px a 16px */
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12); /* 🔴 MEJORADO */
+  min-height: 450px; /* 🔴 AÑADIDO */
 }
 
 .cta-vender__content {
-    flex: 1;
-    padding: 60px 50px; /* 🔴 AUMENTADO */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-width: 300px; /* 🔴 AÑADIDO */
+  flex: 1;
+  padding: 50px 45px; /* 🔴 AJUSTADO */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px; /* 🔴 AÑADIDO: Espaciado consistente */
 }
 
-.cta-vender__content h2 {
-    font-size: clamp(1.6rem, 3vw, 2.2rem); /* 🔴 OPTIMIZADO */
-    font-weight: 700;
-    color: #002d62;
-    margin-bottom: 20px; /* 🔴 AUMENTADO */
+.cta-vender__title {
+  font-size: clamp(1.8rem, 3vw, 2.3rem); /* 🔴 NUEVO */
+  font-weight: 700;
+  color: var(--azul-base);
+  margin: 0;
+  line-height: 1.2;
 }
 
-.cta-vender__content p {
-    font-size: clamp(1rem, 1.8vw, 1.2rem); /* 🔴 OPTIMIZADO */
-    color: #333;
-    margin-bottom: 35px; /* 🔴 AUMENTADO */
-    line-height: 1.6;
+.cta-vender__subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.15rem); /* 🔴 NUEVO */
+  color: #555;
+  margin: 0;
+  line-height: 1.6;
 }
 
+/* Servicios en el CTA */
+.cta-services {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+  justify-content: center;
+}
+
+.cta-service-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--gris-claro);
+  padding: 12px 18px;
+  border-radius: 50px; /* 🔴 NUEVO: Pills style */
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.cta-service-icon {
+  width: 40px; /* 🔴 REDUCIDO */
+  height: 40px; /* 🔴 REDUCIDO */
+  background: linear-gradient(135deg, var(--azul-base) 0%, #003d7a 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cta-service-icon i {
+  font-size: 1.1rem; /* 🔴 REDUCIDO */
+  color: var(--blanco);
+}
+
+.cta-service-item span {
+  color: var(--azul-base);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* Botón de WhatsApp */
 .cta-vender__btn {
-    display: inline-block;
-    background: #002d62;
-    color: white;
-    padding: 16px 24px; /* 🔴 AUMENTADO */
-    font-size: clamp(1rem, 1.5vw, 1.1rem); /* 🔴 OPTIMIZADO */
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s ease;
-    width: 85%; /* 🔴 AUMENTADO */
-    text-align: center; /* 🔴 AÑADIDO */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #25D366; /* 🔴 CAMBIADO: Verde WhatsApp */
+  color: white;
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  align-self: flex-start; /* 🔴 AÑADIDO: No ocupa todo el ancho */
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); /* 🔴 AÑADIDO */
 }
 
 .cta-vender__btn:hover {
-    background: var(--dorado); /* 🔴 AÑADIDO */
-    color: var(--negro); /* 🔴 AÑADIDO */
-    transform: translateY(-2px); /* 🔴 AÑADIDO */
+  background: #128C7E; /* 🔴 CAMBIADO: Verde más oscuro */
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); /* 🔴 AÑADIDO */
+}
+
+.cta-vender__btn i {
+  font-size: 1.4rem; /* 🔴 AÑADIDO: Icono de WhatsApp */
 }
 
 .cta-vender__image {
-    flex: 1;
-    background-image: image-url("casa_1.jpg");
-    background-size: cover;
-    background-position: center;
-    min-height: 350px; /* 🔴 AUMENTADO */
+  flex: 1;
+  background-image: image-url("casa_1.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 450px; /* 🔴 IGUALADO con .cta-vender */
+}
+
+/* ==============================================
+   📱 RESPONSIVE - CTA
+============================================== */
+
+@media (max-width: 1024px) {
+  .cta-vender {
+    margin: 60px 20px 50px;
+  }
+
+  .cta-vender__content {
+    padding: 40px 35px;
+  }
+
+  .cta-services {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-vender {
+    flex-direction: column;
+    margin: 50px 20px 40px;
+  }
+
+  .cta-vender__content {
+    padding: 35px 30px;
+    text-align: center;
+  }
+
+  .cta-services {
+    justify-content: center;
+  }
+
+  .cta-vender__btn {
+    align-self: center;
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .cta-vender__image {
+    min-height: 300px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-vender {
+    margin: 40px 15px 30px;
+    border-radius: 12px;
+  }
+
+  .cta-vender__content {
+    padding: 30px 20px;
+    gap: 20px;
+  }
+
+  .cta-services {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cta-service-item {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .cta-vender__btn {
+    padding: 14px 24px;
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .cta-vender__image {
+    min-height: 250px;
+  }
 }
 
 /* 🔹 Footer */
@@ -521,6 +902,8 @@ p {
         justify-content: center;
     }
 }
+
+
 
 /* Móviles */
 @media (max-width: 480px) {
