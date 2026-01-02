@@ -115,7 +115,7 @@
 .property-info p {
   margin: 12px 0;
   color: var(--negro);
-  font-size: 1rem;
+  font-size: 1.1rem;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -135,7 +135,6 @@
 .property-price {
   font-size: 1.5rem !important;
   font-weight: 700;
-  color: var(--dorado) !important;
   margin-top: 15px !important;
   justify-content: center;
 }
@@ -161,7 +160,7 @@
   border-radius: 6px;
   font-weight: 600;
   transition: all 0.3s ease;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   flex: 1;
   text-align: center;
 }
@@ -302,8 +301,8 @@
   }
 
   .boton {
-    padding: 10px 16px;
-    font-size: 0.85rem;
+    padding: 15px 16px;
+    font-size: 1.1rem;
   }
 }
 
