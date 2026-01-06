@@ -3,7 +3,7 @@
 ============================================== */
 
 .property-form-page {
-  background-image: image-url("background-neeew.png");
+  background-image: url("/assets/background-neeew.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
