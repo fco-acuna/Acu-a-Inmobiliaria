@@ -1,16 +1,13 @@
-puts "Borrando datos pasados"
-puts "-"*20
-# Propiedades
-Property.destroy_all
-Account.destroy_all
+# db/seeds.rb
 
-puts "Datos borrados exitosamente"
-puts "-"*20
+return unless ENV["ADMIN_EMAIL"] && ENV["ADMIN_PASSWORD"]
 
-puts "Creando usuarios"
-puts "-"*20
-Account.create!(first_name: "Admin", email: "pacs@gmail.com", password: "123456")
+admin = Account.find_or_initialize_by(email: ENV["ADMIN_EMAIL"])
 
-puts "Usuarios creados correctamente"
-puts "-"*20
-puts "H4PPY C0D1NG! :)"
+if admin.new_record?
+    admin.password = ENV["ADMIN_PASSWORD"]
+    admin.password_confirmation = ENV["ADMIN_PASSWORD"]
+    admin.admin = true
+    admin.save!
+    Rails.logger.info "✅ Admin created: #{admin.email}"
+end
