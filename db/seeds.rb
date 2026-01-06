@@ -1,13 +1,9 @@
-# db/seeds.rb
+admin_email = ENV["ADMIN_EMAIL"]
 
-return unless ENV["ADMIN_EMAIL"] && ENV["ADMIN_PASSWORD"]
+return unless admin_email
 
-admin = Account.find_or_initialize_by(email: ENV["ADMIN_EMAIL"])
-
-if admin.new_record?
+Account.find_or_create_by!(email: admin_email) do |admin|
+    admin.first_name = ENV.fetch("ADMIN_FIRST_NAME", "Admin")
     admin.password = ENV["ADMIN_PASSWORD"]
-    admin.password_confirmation = ENV["ADMIN_PASSWORD"]
     admin.admin = true
-    admin.save!
-    Rails.logger.info "✅ Admin created: #{admin.email}"
 end
