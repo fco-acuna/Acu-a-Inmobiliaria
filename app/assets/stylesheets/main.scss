@@ -1,7 +1,6 @@
 /* 🎨 Paleta principal */
 :root {
     --azul-base: #002b5b;
-    --dorado: #d4af37; /* 🔴 CRÍTICO: Estaba duplicado como #002b5b */
     --negro: #222222;
     --gris-claro: #f8f9fa;
     --blanco: #ffffff;
@@ -9,7 +8,7 @@
 
 /* 🔹 Base general */
 * {
-    box-sizing: border-box; /* 🔴 CRÍTICO: Previene desbordamientos */
+    box-sizing: border-box;
 }
 
 body {
@@ -18,7 +17,7 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    font-size: 20px; 
+    font-size: 16px; 
 }
 
 h1, h2, h3 {
@@ -37,19 +36,16 @@ p {
 ============================================== */
 
 .hero_banner {
-  height: 65vh;
-  min-height: 450px;
+  height: auto;
+  min-height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--gris-claro);
   border-bottom: 3px solid var(--azul-base);
-  padding: 30px 20px;
-  position: relative;
-  overflow: hidden;
+  padding: 40px 20px;
 }
 
-/* Contenedor principal del hero */
 .hero_content {
   display: flex;
   align-items: center;
@@ -59,7 +55,6 @@ p {
   gap: 50px;
 }
 
-/* Logo */
 .logo_contuksa {
   height: 350px;
   width: 350px;
@@ -71,7 +66,6 @@ p {
   flex-shrink: 0;
 }
 
-/* Servicios */
 .hero_services {
   display: flex;
   flex-direction: column;
@@ -82,7 +76,6 @@ p {
   background: var(--blanco);
   padding: 18px 25px;
   border-radius: 10px;
-  text-align: center;
   min-width: 220px;
   max-width: 280px;
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
@@ -118,195 +111,6 @@ p {
   text-align: left;
 }
 
-/* ==============================================
-   📱 RESPONSIVE - HERO BANNER
-============================================== */
-
-/* Tablets y laptops pequeñas */
-@media (max-width: 1024px) {
-  .hero_content {
-    flex-direction: column;
-    gap: 35px;
-  }
-
-  .logo_contuksa {
-    height: 280px;
-    width: 280px;
-    min-width: 240px;
-  }
-
-  .hero_services {
-    width: 100%;
-    max-width: 500px;
-    align-items: center;
-  }
-  
-  .service_item {
-    width: 100%;
-    max-width: 400px;
-  }
-}
-
-/* Tablets */
-@media (max-width: 768px) {
-  .hero_banner {
-    height: auto; /* 🔴 CRÍTICO: Auto height */
-    min-height: auto;
-    padding: 30px 15px; /* 🔴 REDUCIDO */
-  }
-
-  .hero_content {
-    gap: 25px; /* 🔴 REDUCIDO */
-    width: 95%; /* 🔴 AUMENTADO: Más ancho */
-  }
-
-  .logo_contuksa {
-    height: 220px; /* 🔴 REDUCIDO */
-    width: 220px;
-    min-width: 180px;
-  }
-
-  .hero_services {
-    gap: 12px; /* 🔴 REDUCIDO */
-    max-width: 100%;
-    width: 100%;
-  }
-
-  .service_item {
-    max-width: 100%;
-    padding: 14px 18px; /* 🔴 REDUCIDO */
-    min-width: auto;
-  }
-
-  .service_icon {
-    width: 45px; /* 🔴 REDUCIDO */
-    height: 45px;
-  }
-
-  .service_icon i {
-    font-size: 1.3rem; /* 🔴 REDUCIDO */
-  }
-
-  .service_item h3 {
-    font-size: 1.2rem; /* 🔴 REDUCIDO */
-  }
-}
-
-/* Móviles */
-@media (max-width: 480px) {
-  .hero_banner {
-    padding: 20px 10px; /* 🔴 MÁS REDUCIDO */
-    height: auto;
-    min-height: auto;
-  }
-
-  .hero_content {
-    width: 100%; /* 🔴 100% del ancho */
-    gap: 20px; /* 🔴 REDUCIDO */
-  }
-
-  .logo_contuksa {
-    height: 150px; /* 🔴 MUY REDUCIDO */
-    width: 150px;
-    min-width: 120px;
-  }
-
-  .hero_services {
-    gap: 10px; /* 🔴 MÁS REDUCIDO */
-    width: 100%;
-  }
-
-  .service_item {
-    padding: 12px 15px; /* 🔴 MÁS REDUCIDO */
-    flex-direction: column; /* 🔴 Vertical en móvil */
-    text-align: center;
-    gap: 8px; /* 🔴 REDUCIDO */
-    min-width: auto;
-  }
-
-  .service_item h3 {
-    text-align: center;
-    font-size: 1.1rem; /* 🔴 MÁS REDUCIDO */
-    letter-spacing: 0.3px; /* 🔴 REDUCIDO */
-  }
-
-  .service_icon {
-    width: 42px; /* 🔴 MÁS REDUCIDO */
-    height: 42px;
-    margin: 0;
-  }
-
-  .service_icon i {
-    font-size: 1.2rem; /* 🔴 MÁS REDUCIDO */
-  }
-}
-
-/* Móviles muy pequeños (iPhone SE, Galaxy Fold) */
-@media (max-width: 375px) {
-  .hero_banner {
-    padding: 15px 8px; /* 🔴 MÍNIMO padding */
-  }
-
-  .hero_content {
-    gap: 15px; /* 🔴 MÍNIMO gap */
-  }
-
-  .logo_contuksa {
-    height: 130px; /* 🔴 EXTRA PEQUEÑO */
-    width: 130px;
-    min-width: 110px;
-  }
-
-  .hero_services {
-    gap: 8px; /* 🔴 MÍNIMO gap */
-  }
-
-  .service_item {
-    padding: 10px 12px; /* 🔴 MÍNIMO padding */
-    gap: 6px;
-  }
-
-  .service_item h3 {
-    font-size: 1rem; /* 🔴 EXTRA PEQUEÑO */
-    letter-spacing: 0.2px;
-  }
-
-  .service_icon {
-    width: 38px; /* 🔴 EXTRA PEQUEÑO */
-    height: 38px;
-  }
-
-  .service_icon i {
-    font-size: 1.1rem;
-  }
-}
-
-/* Móviles ultra pequeños (< 350px) */
-@media (max-width: 350px) {
-  .logo_contuksa {
-    height: 110px;
-    width: 110px;
-    min-width: 100px;
-  }
-
-  .service_item {
-    padding: 8px 10px;
-  }
-
-  .service_item h3 {
-    font-size: 0.95rem;
-  }
-
-  .service_icon {
-    width: 36px;
-    height: 36px;
-  }
-
-  .service_icon i {
-    font-size: 1rem;
-  }
-}
-
 /* 🔹 About Section */
 .about_banner {
     display: flex;
@@ -314,28 +118,28 @@ p {
     align-items: center;
     margin: 40px auto;
     width: 90%;
-    max-width: 1400px; /* 🔴 AÑADIDO: Límite en pantallas grandes */
+    max-width: 1400px;
     gap: 60px;
-    padding: 20px 0; /* 🔴 AÑADIDO */
+    padding: 20px 0;
 }
 
 .banner_informacion {
     width: 40%;
-    min-width: 280px; /* 🔴 AÑADIDO: Ancho mínimo */
+    min-width: 280px;
 }
 
 .banner_informacion h1 {
     color: var(--azul-base);
     border-left: 4px solid var(--azul-base);
     padding-left: 12px;
-    font-size: clamp(1.5rem, 3vw, 2rem); /* 🔴 OPTIMIZADO */
+    font-size: clamp(1.5rem, 3vw, 2rem);
     margin-bottom: 16px;
 }
 
 .banner_informacion p {
-    font-size: clamp(1rem, 1.5vw, 1.5rem); /* 🔴 OPTIMIZADO */
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
     color: #444;
-    line-height: 1.7; /* 🔴 MEJORADO */
+    line-height: 1.7;
 }
 
 .banner_iconos {
@@ -343,48 +147,48 @@ p {
     gap: 40px;
     justify-content: center;
     align-items: center;
-    flex-wrap: nowrap; 
+    flex-wrap: wrap;
 }
 
 .iconos {
     text-align: center;
-    padding: 15px; /* 🔴 AUMENTADO */
-    min-width: 120px; /* 🔴 AÑADIDO */
+    padding: 15px;
+    min-width: 120px;
 }
 
 .iconos i {
     color: var(--azul-base);
-    font-size: clamp(2rem, 3vw, 2.5rem); /* 🔴 OPTIMIZADO */
-    margin-bottom: 10px; /* 🔴 AUMENTADO */
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    margin-bottom: 10px;
 }
 
 .icono_informacion p {
     font-weight: 500;
     color: var(--azul-base);
-    font-size: clamp(1rem, 1.5vw, 1.2rem); /* 🔴 AÑADIDO */
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
 }
 
 /* 🔹 Section 2 - Preview de Casas */
 .section_2 {
-    margin: 100px auto 80px; /* 🔴 AJUSTADO */
+    margin: 100px auto 80px;
     width: 90%;
-    max-width: 1400px; /* 🔴 AÑADIDO */
+    max-width: 1400px;
     text-align: center;
-    padding: 0 20px; /* 🔴 AÑADIDO */
+    padding: 0 20px;
 }
 
 .preview_casas {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 30px; /* 🔴 AUMENTADO de 25px */
-    margin-top: 40px; /* 🔴 AUMENTADO */
+    gap: 30px;
+    margin-top: 40px;
 }
 
 .tarjeta_preview {
     width: 100%;
-    max-width: 380px; /* 🔴 CAMBIADO: De % a max-width */
-    min-width: 280px; /* 🔴 AÑADIDO */
+    max-width: 380px;
+    min-width: 280px;
     border: 1px solid var(--gris-claro);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     border-radius: 10px;
@@ -394,12 +198,12 @@ p {
 }
 
 .tarjeta_preview:hover {
-    transform: translateY(-6px); /* 🔴 AUMENTADO */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18); /* 🔴 MEJORADO */
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
 }
 
 .tarjeta_preview .imagen {
-    height: 280px; /* 🔴 CAMBIADO: De vh a px para consistencia */
+    height: 280px;
     overflow: hidden;
 }
 
@@ -407,23 +211,23 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center; /* 🔴 AÑADIDO */
+    object-position: center;
 }
 
 .tarjeta_preview .texto {
-    padding: 20px; /* 🔴 AUMENTADO */
+    padding: 20px;
 }
 
 .tarjeta_preview p {
     color: var(--azul-base);
     font-weight: 500;
-    font-size: clamp(1.1rem, 1.5vw, 1.5rem); /* 🔴 OPTIMIZADO */
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
     margin: 0;
 }
 
 /* 🔹 Botón */
 .boton_catalogo {
-    margin-top: 40px; /* 🔴 AUMENTADO */
+    margin-top: 40px;
 }
 
 .boton a {
@@ -431,33 +235,32 @@ p {
     background-color: var(--azul-base);
     color: var(--blanco);
     text-decoration: none;
-    padding: 14px 32px; /* 🔴 AUMENTADO */
-    border-radius: 8px; /* 🔴 AUMENTADO */
+    padding: 14px 32px;
+    border-radius: 8px;
     font-weight: bold;
-    font-size: clamp(1.1rem, 1.5vw, 1.5rem); /* 🔴 AÑADIDO */
+    font-size: clamp(1rem, 1.5vw, 1.1rem);
     transition: all 0.3s ease;
     letter-spacing: 0.5px;
 }
 
 .boton a:hover {
-    background-color: var(--dorado);
     color: var(--negro);
-    transform: translateY(-2px); /* 🔴 AÑADIDO */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 🔴 AÑADIDO */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* 🔹 Reviews Section */
 .reviews {
     background-color: var(--gris-claro);
-    padding: 60px 20px; /* 🔴 AUMENTADO */
+    padding: 60px 20px;
     text-align: center;
 }
 
 .reviews_titulo h1 {
     font-weight: 700;
-    font-size: clamp(1.8rem, 3vw, 2.2rem); /* 🔴 OPTIMIZADO */
+    font-size: clamp(1.8rem, 3vw, 2.2rem);
     color: var(--azul-base);
-    margin-bottom: 50px; /* 🔴 AUMENTADO */
+    margin-bottom: 50px;
 }
 
 .reviews_container {
@@ -466,57 +269,47 @@ p {
     gap: 30px;
     flex-wrap: wrap;
     width: 90%;
-    max-width: 1400px; /* 🔴 AÑADIDO */
+    max-width: 1400px;
     margin: 0 auto;
 }
 
 .review_tarjeta {
-    border: 2px solid var(--azul-base); /* 🔴 AUMENTADO grosor */
+    border: 2px solid var(--azul-base);
     background-color: var(--blanco);
-    padding: 30px; /* 🔴 AUMENTADO */
-    border-radius: 12px; /* 🔴 AUMENTADO */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* 🔴 MEJORADO */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     width: 100%;
-    max-width: 380px; /* 🔴 CAMBIADO: De % a max-width */
-    min-width: 280px; /* 🔴 AÑADIDO */
+    max-width: 380px;
+    min-width: 280px;
     transition: all 0.3s ease;
 }
 
 .review_tarjeta:hover {
-    transform: translateY(-6px); /* 🔴 AUMENTADO */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* 🔴 MEJORADO */
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .review_tarjeta h3 {
     color: var(--azul-base);
-    font-size: clamp(1.2rem, 2vw, 1.4rem); /* 🔴 AÑADIDO */
-    margin-bottom: 15px; /* 🔴 AUMENTADO */
-    margin-top: 10px; /* 🔴 AUMENTADO */
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    margin-bottom: 15px;
+    margin-top: 10px;
 }
 
 .review_tarjeta p {
-    font-size: clamp(0.95rem, 1.3vw, 1.05rem); /* 🔴 OPTIMIZADO */
+    font-size: clamp(0.95rem, 1.3vw, 1.05rem);
     color: #444;
-    line-height: 1.7; /* 🔴 MEJORADO */
+    line-height: 1.7;
 }
 
 .fa-star {
-    font-size: 22px; /* 🔴 AUMENTADO */
-    color: #ffc107; /* 🔴 AÑADIDO: Color dorado para estrellas */
+    font-size: 22px;
+    color: #ffc107;
 }
 
 .estrellas {
-    margin-bottom: 15px; /* 🔴 AÑADIDO */
-}
-
-/* 🔹 Logo */
-.logo_contuksa {
-    height: 65vh;
-    width: 400px;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: image-url("contuksa_logo.png");
+    margin-bottom: 15px;
 }
 
 /* 🔹 CTA Vender */
@@ -525,24 +318,24 @@ p {
   align-items: center;
   background: var(--blanco);
   overflow: hidden;
-  margin: 80px auto 60px; /* 🔴 AUMENTADO: Más espacio arriba */
-  max-width: 1200px; /* 🔴 REDUCIDO: De 1100px a 1200px */
-  border-radius: 16px; /* 🔴 AUMENTADO: De 12px a 16px */
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12); /* 🔴 MEJORADO */
-  min-height: 450px; /* 🔴 AÑADIDO */
+  margin: 80px auto 60px;
+  max-width: 1200px;
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+  min-height: 450px;
 }
 
 .cta-vender__content {
   flex: 1;
-  padding: 50px 45px; /* 🔴 AJUSTADO */
+  padding: 50px 45px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 25px; /* 🔴 AÑADIDO: Espaciado consistente */
+  gap: 25px;
 }
 
 .cta-vender__title {
-  font-size: clamp(1.8rem, 3vw, 2.3rem); /* 🔴 NUEVO */
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
   font-weight: 700;
   color: var(--azul-base);
   margin: 0;
@@ -550,19 +343,17 @@ p {
 }
 
 .cta-vender__subtitle {
-  font-size: clamp(1rem, 1.5vw, 1.15rem); /* 🔴 NUEVO */
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
   color: #555;
   margin: 0;
   line-height: 1.6;
 }
 
-/* Servicios en el CTA */
 .cta-services {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
   margin: 10px 0;
-  justify-content: center;
 }
 
 .cta-service-item {
@@ -571,14 +362,14 @@ p {
   gap: 10px;
   background: var(--gris-claro);
   padding: 12px 18px;
-  border-radius: 50px; /* 🔴 NUEVO: Pills style */
+  border-radius: 50px;
   border: 2px solid transparent;
   transition: all 0.3s ease;
 }
 
 .cta-service-icon {
-  width: 40px; /* 🔴 REDUCIDO */
-  height: 40px; /* 🔴 REDUCIDO */
+  width: 40px;
+  height: 40px;
   background: linear-gradient(135deg, var(--azul-base) 0%, #003d7a 100%);
   border-radius: 50%;
   display: flex;
@@ -588,7 +379,7 @@ p {
 }
 
 .cta-service-icon i {
-  font-size: 1.1rem; /* 🔴 REDUCIDO */
+  font-size: 1.1rem;
   color: var(--blanco);
 }
 
@@ -599,13 +390,12 @@ p {
   letter-spacing: 0.3px;
 }
 
-/* Botón de WhatsApp */
 .cta-vender__btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: #25D366; /* 🔴 CAMBIADO: Verde WhatsApp */
+  background: #25D366;
   color: white;
   padding: 16px 32px;
   font-size: 1.1rem;
@@ -613,19 +403,19 @@ p {
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
-  align-self: flex-start; /* 🔴 AÑADIDO: No ocupa todo el ancho */
-  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); /* 🔴 AÑADIDO */
+  align-self: flex-start;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
 }
 
 .cta-vender__btn:hover {
-  background: #128C7E; /* 🔴 CAMBIADO: Verde más oscuro */
+  background: #128C7E;
   color: white;
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); /* 🔴 AÑADIDO */
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
 }
 
 .cta-vender__btn i {
-  font-size: 1.4rem; /* 🔴 AÑADIDO: Icono de WhatsApp */
+  font-size: 1.4rem;
 }
 
 .cta-vender__image {
@@ -633,137 +423,60 @@ p {
   background-image: image-url("casa_1.jpg");
   background-size: cover;
   background-position: center;
-  min-height: 450px; /* 🔴 IGUALADO con .cta-vender */
-}
-
-/* ==============================================
-   📱 RESPONSIVE - CTA
-============================================== */
-
-@media (max-width: 1024px) {
-  .cta-vender {
-    margin: 60px 20px 50px;
-  }
-
-  .cta-vender__content {
-    padding: 40px 35px;
-  }
-
-  .cta-services {
-    gap: 12px;
-  }
-}
-
-@media (max-width: 768px) {
-  .cta-vender {
-    flex-direction: column;
-    margin: 50px 20px 40px;
-  }
-
-  .cta-vender__content {
-    padding: 35px 30px;
-    text-align: center;
-  }
-
-  .cta-services {
-    justify-content: center;
-  }
-
-  .cta-vender__btn {
-    align-self: center;
-    width: 100%;
-    max-width: 350px;
-  }
-
-  .cta-vender__image {
-    min-height: 300px;
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .cta-vender {
-    margin: 40px 15px 30px;
-    border-radius: 12px;
-  }
-
-  .cta-vender__content {
-    padding: 30px 20px;
-    gap: 20px;
-  }
-
-  .cta-services {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .cta-service-item {
-    justify-content: center;
-    width: 100%;
-  }
-
-  .cta-vender__btn {
-    padding: 14px 24px;
-    font-size: 1rem;
-    width: 100%;
-  }
-
-  .cta-vender__image {
-    min-height: 250px;
-  }
+  min-height: 450px;
 }
 
 /* 🔹 Footer */
 .footer_container {
     display: flex;
     justify-content: space-around;
-    padding: 40px 25px; /* 🔴 AUMENTADO */
+    padding: 40px 25px;
     align-items: center;
-    background-color: var(--gris-claro); /* 🔴 AÑADIDO */
-    flex-wrap: wrap; /* 🔴 AÑADIDO */
-    gap: 30px; /* 🔴 AÑADIDO */
+    background-color: var(--gris-claro);
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
 .footer_informacion {
     width: 30%;
-    min-width: 250px; /* 🔴 AÑADIDO */
-    font-size: clamp(1rem, 1.2vw, 1.2rem); /* 🔴 AÑADIDO */
+    min-width: 250px;
+    font-size: clamp(0.9rem, 1.2vw, 1rem);
 }
 
 .footer_logo {
     background-image: image-url("contuksa_logo.png");
     height: 155px;
     width: 40%;
-    min-width: 200px; /* 🔴 AÑADIDO */
+    min-width: 200px;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    border-right: 2px solid var(--azul-base); /* 🔴 MEJORADO */
-    padding-right: 20px; /* 🔴 AÑADIDO */
+    border-right: 2px solid var(--azul-base);
+    padding-right: 20px;
 }
 
 .footer_detalles {
-    margin: 15px 0; /* 🔴 AJUSTADO */
+    margin: 15px 0;
     display: flex;
-    gap: 25px; /* 🔴 AUMENTADO */
-    flex-wrap: nowrap; /* 🔴 AÑADIDO */
+    gap: 25px;
+    flex-wrap: wrap;
 }
 
 /* 🔹 Header */
 .header_container {
-    padding: 25px; /* 🔴 AUMENTADO */
+    padding: 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* 🔴 AÑADIDO */
-    background-color: var(--blanco); /* 🔴 AÑADIDO */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    background-color: var(--blanco);
 }
 
 .header_logo {
     background-image: image-url("contuksa_logo_header.png");
-    height: 8vh; /* 🔴 AUMENTADO */
-    min-height: 50px; /* 🔴 AÑADIDO */
-    width: 120px; /* 🔴 AUMENTADO */
+    height: 8vh;
+    min-height: 50px;
+    width: 120px;
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -771,21 +484,58 @@ p {
 .header_container a {
     text-decoration: none;
     color: black;
-    font-size: clamp(1.1rem, 1.5vw, 1.2rem); /* 🔴 AÑADIDO */
-    font-weight: 500; /* 🔴 AÑADIDO */
-    transition: color 0.3s ease; /* 🔴 AÑADIDO */
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 .header_container a:hover {
-    color: var(--azul-base); /* 🔴 AÑADIDO */
+    color: var(--azul-base);
 }
 
 /* ==============================================
-   📱 RESPONSIVE MEJORADO
+   📱 RESPONSIVE
 ============================================== */
 
-/* Tablets grandes y laptops pequeñas */
+/* Desktop grande */
+@media (min-width: 1400px) {
+    .preview_casas,
+    .reviews_container {
+        justify-content: center;
+        gap: 40px;
+    }
+    
+    .tarjeta_preview,
+    .review_tarjeta {
+        width: 30%;
+        max-width: 400px;
+    }
+}
+
+/* Tablets y laptops pequeñas */
 @media (max-width: 1024px) {
+    .hero_content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .logo_contuksa {
+        height: 250px;
+        width: 250px;
+        min-width: 200px;
+    }
+
+    .hero_services {
+        width: 100%;
+        max-width: 450px;
+        align-items: center;
+    }
+
+    .service_item {
+        width: 100%;
+        max-width: 400px;
+    }
+
     .about_banner {
         width: 95%;
         gap: 40px;
@@ -808,15 +558,63 @@ p {
     .review_tarjeta {
         width: 45%;
     }
+
+    .cta-vender {
+        margin: 60px 20px 50px;
+    }
+
+    .cta-vender__content {
+        padding: 40px 35px;
+    }
+
+    .cta-services {
+        gap: 12px;
+        justify-content: center;
+    }
 }
 
 /* Tablets */
 @media (max-width: 768px) {
     .hero_banner {
-        height: 50vh;
-        min-height: 350px;
+        padding: 30px 15px;
     }
-    
+
+    .hero_content {
+        gap: 25px;
+        width: 95%;
+    }
+
+    .logo_contuksa {
+        height: 200px;
+        width: 200px;
+        min-width: 160px;
+    }
+
+    .hero_services {
+        gap: 12px;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .service_item {
+        max-width: 100%;
+        padding: 14px 18px;
+        min-width: auto;
+    }
+
+    .service_icon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .service_icon i {
+        font-size: 1.3rem;
+    }
+
+    .service_item h3 {
+        font-size: 1.2rem;
+    }
+
     .about_banner {
         flex-direction: column;
         gap: 40px;
@@ -869,19 +667,27 @@ p {
     
     .cta-vender {
         flex-direction: column;
-        margin: 40px 20px;
+        margin: 50px 20px 40px;
     }
     
     .cta-vender__content {
-        padding: 40px 30px;
+        padding: 35px 30px;
+        text-align: center;
+    }
+    
+    .cta-services {
+        justify-content: center;
     }
     
     .cta-vender__btn {
+        align-self: center;
         width: 100%;
+        max-width: 350px;
     }
     
     .cta-vender__image {
         min-height: 300px;
+        width: 100%;
     }
     
     .footer_container {
@@ -907,18 +713,54 @@ p {
     }
 }
 
-
-
 /* Móviles */
 @media (max-width: 480px) {
     body {
         font-size: 15px;
     }
-    
+
     .hero_banner {
-        height: 45vh;
-        min-height: 300px;
-        padding: 15px;
+        padding: 20px 10px;
+    }
+
+    .hero_content {
+        width: 100%;
+        gap: 20px;
+    }
+
+    .logo_contuksa {
+        height: 140px;
+        width: 140px;
+        min-width: 120px;
+    }
+
+    .hero_services {
+        gap: 10px;
+        width: 100%;
+    }
+
+    .service_item {
+        padding: 12px 15px;
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+        min-width: auto;
+    }
+
+    .service_item h3 {
+        text-align: center;
+        font-size: 1.1rem;
+        letter-spacing: 0.3px;
+    }
+
+    .service_icon {
+        width: 42px;
+        height: 42px;
+        margin: 0;
+    }
+
+    .service_icon i {
+        font-size: 1.2rem;
     }
     
     .about_banner {
@@ -979,12 +821,29 @@ p {
     }
     
     .cta-vender {
-        margin: 30px 15px;
-        border-radius: 8px;
+        margin: 40px 15px 30px;
+        border-radius: 12px;
     }
     
     .cta-vender__content {
         padding: 30px 20px;
+        gap: 20px;
+    }
+    
+    .cta-services {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .cta-service-item {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .cta-vender__btn {
+        padding: 14px 24px;
+        font-size: 1rem;
+        width: 100%;
     }
     
     .cta-vender__image {
@@ -1009,10 +868,43 @@ p {
     }
 }
 
-/* Pantallas muy pequeñas */
-@media (max-width: 360px) {
+/* Móviles muy pequeños */
+@media (max-width: 375px) {
     .hero_banner {
-        min-height: 280px;
+        padding: 15px 8px;
+    }
+
+    .hero_content {
+        gap: 15px;
+    }
+
+    .logo_contuksa {
+        height: 120px;
+        width: 120px;
+        min-width: 100px;
+    }
+
+    .hero_services {
+        gap: 8px;
+    }
+
+    .service_item {
+        padding: 10px 12px;
+        gap: 6px;
+    }
+
+    .service_item h3 {
+        font-size: 1rem;
+        letter-spacing: 0.2px;
+    }
+
+    .service_icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    .service_icon i {
+        font-size: 1.1rem;
     }
     
     .tarjeta_preview .imagen {
@@ -1024,17 +916,28 @@ p {
     }
 }
 
-/* Pantallas grandes */
-@media (min-width: 1400px) {
-    .preview_casas,
-    .reviews_container {
-        justify-content: center;
-        gap: 40px;
+/* Móviles ultra pequeños */
+@media (max-width: 350px) {
+    .logo_contuksa {
+        height: 100px;
+        width: 100px;
+        min-width: 90px;
     }
-    
-    .tarjeta_preview,
-    .review_tarjeta {
-        width: 30%;
-        max-width: 400px;
+
+    .service_item {
+        padding: 8px 10px;
+    }
+
+    .service_item h3 {
+        font-size: 0.95rem;
+    }
+
+    .service_icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .service_icon i {
+        font-size: 1rem;
     }
 }
