@@ -150,115 +150,160 @@ p {
 /* Tablets */
 @media (max-width: 768px) {
   .hero_banner {
-    height: auto;
+    height: auto; /* 🔴 CRÍTICO: Auto height */
     min-height: auto;
-    padding: 35px 20px;
+    padding: 30px 15px; /* 🔴 REDUCIDO */
   }
 
   .hero_content {
-    gap: 30px;
+    gap: 25px; /* 🔴 REDUCIDO */
+    width: 95%; /* 🔴 AUMENTADO: Más ancho */
   }
 
   .logo_contuksa {
-    height: 240px;
-    width: 240px;
-    min-width: 200px;
+    height: 220px; /* 🔴 REDUCIDO */
+    width: 220px;
+    min-width: 180px;
   }
 
   .hero_services {
-    gap: 15px;
+    gap: 12px; /* 🔴 REDUCIDO */
     max-width: 100%;
+    width: 100%;
   }
 
   .service_item {
     max-width: 100%;
-    padding: 16px 20px;
+    padding: 14px 18px; /* 🔴 REDUCIDO */
     min-width: auto;
   }
 
   .service_icon {
-    width: 50px;
-    height: 50px;
+    width: 45px; /* 🔴 REDUCIDO */
+    height: 45px;
   }
 
   .service_icon i {
-    font-size: 1.4rem;
+    font-size: 1.3rem; /* 🔴 REDUCIDO */
   }
 
   .service_item h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem; /* 🔴 REDUCIDO */
   }
 }
 
 /* Móviles */
 @media (max-width: 480px) {
   .hero_banner {
-    padding: 25px 15px;
+    padding: 20px 10px; /* 🔴 MÁS REDUCIDO */
+    height: auto;
+    min-height: auto;
   }
 
   .hero_content {
-    width: 95%;
-    gap: 25px;
+    width: 100%; /* 🔴 100% del ancho */
+    gap: 20px; /* 🔴 REDUCIDO */
   }
 
   .logo_contuksa {
-    height: 180px;
-    width: 180px;
-    min-width: 160px;
+    height: 150px; /* 🔴 MUY REDUCIDO */
+    width: 150px;
+    min-width: 120px;
   }
 
   .hero_services {
-    gap: 12px;
+    gap: 10px; /* 🔴 MÁS REDUCIDO */
     width: 100%;
   }
 
   .service_item {
-    padding: 14px 18px;
-    flex-direction: column;
+    padding: 12px 15px; /* 🔴 MÁS REDUCIDO */
+    flex-direction: column; /* 🔴 Vertical en móvil */
     text-align: center;
-    gap: 10px;
+    gap: 8px; /* 🔴 REDUCIDO */
     min-width: auto;
   }
 
   .service_item h3 {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem; /* 🔴 MÁS REDUCIDO */
+    letter-spacing: 0.3px; /* 🔴 REDUCIDO */
   }
 
   .service_icon {
-    width: 48px;
-    height: 48px;
+    width: 42px; /* 🔴 MÁS REDUCIDO */
+    height: 42px;
     margin: 0;
   }
 
   .service_icon i {
-    font-size: 1.3rem;
+    font-size: 1.2rem; /* 🔴 MÁS REDUCIDO */
   }
 }
 
-/* Móviles muy pequeños */
-@media (max-width: 360px) {
+/* Móviles muy pequeños (iPhone SE, Galaxy Fold) */
+@media (max-width: 375px) {
+  .hero_banner {
+    padding: 15px 8px; /* 🔴 MÍNIMO padding */
+  }
+
+  .hero_content {
+    gap: 15px; /* 🔴 MÍNIMO gap */
+  }
+
   .logo_contuksa {
-    height: 160px;
-    width: 160px;
-    min-width: 140px;
+    height: 130px; /* 🔴 EXTRA PEQUEÑO */
+    width: 130px;
+    min-width: 110px;
+  }
+
+  .hero_services {
+    gap: 8px; /* 🔴 MÍNIMO gap */
   }
 
   .service_item {
-    padding: 12px 15px;
+    padding: 10px 12px; /* 🔴 MÍNIMO padding */
+    gap: 6px;
   }
 
   .service_item h3 {
-    font-size: 1.1rem;
+    font-size: 1rem; /* 🔴 EXTRA PEQUEÑO */
+    letter-spacing: 0.2px;
   }
 
   .service_icon {
-    width: 44px;
-    height: 44px;
+    width: 38px; /* 🔴 EXTRA PEQUEÑO */
+    height: 38px;
   }
 
   .service_icon i {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Móviles ultra pequeños (< 350px) */
+@media (max-width: 350px) {
+  .logo_contuksa {
+    height: 110px;
+    width: 110px;
+    min-width: 100px;
+  }
+
+  .service_item {
+    padding: 8px 10px;
+  }
+
+  .service_item h3 {
+    font-size: 0.95rem;
+  }
+
+  .service_icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .service_icon i {
+    font-size: 1rem;
   }
 }
 
