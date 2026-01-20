@@ -17,7 +17,6 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    font-size: 16px; 
 }
 
 h1, h2, h3 {
@@ -104,7 +103,7 @@ p {
 
 .service_item h3 {
   color: var(--azul-base);
-  font-size: 1.4rem;
+  font-size: 2rem;
   margin: 0;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -132,12 +131,10 @@ p {
     color: var(--azul-base);
     border-left: 4px solid var(--azul-base);
     padding-left: 12px;
-    font-size: clamp(1.5rem, 3vw, 2rem);
     margin-bottom: 16px;
 }
 
 .banner_informacion p {
-    font-size: clamp(1rem, 1.5vw, 1.1rem);
     color: #444;
     line-height: 1.7;
 }
@@ -147,7 +144,7 @@ p {
     gap: 40px;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .iconos {
@@ -165,7 +162,7 @@ p {
 .icono_informacion p {
     font-weight: 500;
     color: var(--azul-base);
-    font-size: clamp(0.9rem, 1.2vw, 1rem);
+    font-size: 1.2rem;
 }
 
 /* 🔹 Section 2 - Preview de Casas */
@@ -221,7 +218,6 @@ p {
 .tarjeta_preview p {
     color: var(--azul-base);
     font-weight: 500;
-    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
     margin: 0;
 }
 
@@ -238,7 +234,6 @@ p {
     padding: 14px 32px;
     border-radius: 8px;
     font-weight: bold;
-    font-size: clamp(1rem, 1.5vw, 1.1rem);
     transition: all 0.3s ease;
     letter-spacing: 0.5px;
 }
@@ -258,7 +253,6 @@ p {
 
 .reviews_titulo h1 {
     font-weight: 700;
-    font-size: clamp(1.8rem, 3vw, 2.2rem);
     color: var(--azul-base);
     margin-bottom: 50px;
 }
@@ -292,13 +286,11 @@ p {
 
 .review_tarjeta h3 {
     color: var(--azul-base);
-    font-size: clamp(1.2rem, 2vw, 1.4rem);
     margin-bottom: 15px;
     margin-top: 10px;
 }
 
 .review_tarjeta p {
-    font-size: clamp(0.95rem, 1.3vw, 1.05rem);
     color: #444;
     line-height: 1.7;
 }
@@ -335,7 +327,6 @@ p {
 }
 
 .cta-vender__title {
-  font-size: clamp(1.8rem, 3vw, 2.3rem);
   font-weight: 700;
   color: var(--azul-base);
   margin: 0;
@@ -343,7 +334,6 @@ p {
 }
 
 .cta-vender__subtitle {
-  font-size: clamp(1rem, 1.5vw, 1.15rem);
   color: #555;
   margin: 0;
   line-height: 1.6;
@@ -440,7 +430,6 @@ p {
 .footer_informacion {
     width: 30%;
     min-width: 250px;
-    font-size: clamp(0.9rem, 1.2vw, 1rem);
 }
 
 .footer_logo {
@@ -459,7 +448,7 @@ p {
     margin: 15px 0;
     display: flex;
     gap: 25px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 /* 🔹 Header */
@@ -484,7 +473,6 @@ p {
 .header_container a {
     text-decoration: none;
     color: black;
-    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
     font-weight: 500;
     transition: color 0.3s ease;
 }
