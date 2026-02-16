@@ -61,7 +61,7 @@ p {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: image-url("contuksa_logo.png");
+  background-image: image-url("logo-color-kcalli.png");
   flex-shrink: 0;
 }
 
@@ -433,10 +433,10 @@ p {
 }
 
 .footer_logo {
-    background-image: image-url("contuksa_logo.png");
-    height: 155px;
+    background-image: image-url("logo-color-kcalli.png");
+    height: 100px;
     width: 40%;
-    min-width: 200px;
+    min-width: 150px;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -462,7 +462,7 @@ p {
 }
 
 .header_logo {
-    background-image: image-url("contuksa_logo_header.png");
+    background-image: image-url("logo-color-kcalli.png");
     height: 8vh;
     min-height: 50px;
     width: 120px;
