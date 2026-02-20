@@ -18,11 +18,16 @@
   </head>
 
   <body>
-    
-    <%= render 'layouts/header' %>
+
+    <% unless devise_controller? %>
+      <%= render 'layouts/header' %>
+    <% end %>
+
     <%= yield %>
 
-    <%= render 'layouts/footer' %>
+    <% unless devise_controller? %>
+      <%= render 'layouts/footer' %>
+    <% end %>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
