@@ -23,24 +23,29 @@ class PropertiesController < ApplicationController
 
   # POST /properties or /properties.json
   def create
-    # Filtra y prepara los parámetros
-    filtered_params = property_params
-    
-    # Maneja las fotos por separado
-    photos_array = params[:property][:photos]
-    if photos_array.present?
-      # Filtra strings vacíos y objetos blank
-      valid_photos = photos_array.select { |photo| photo.present? && photo.respond_to?(:tempfile) }
-      filtered_params[:photos] = valid_photos
-    else
-      filtered_params.delete(:photos)
-    end
+    @property = Property.new(property_params.except(:photos))
 
-    @property = Property.new(filtered_params)
+    # Filtra fotos válidas
+    if params[:property][:photos].present?
+      valid_photos = params[:property][:photos].select { |p| p.present? && p.respond_to?(:tempfile) }
+      
+      begin
+        valid_photos.each do |photo|
+          @property.photos.attach(photo)
+        end
+      rescue => e
+        Rails.logger.error "Error adjuntando fotos: #{e.message}"
+        Rails.logger.error e.backtrace.join("\n")
+        flash.now[:alert] = "Error al subir fotos: #{e.message}"
+        render :new, status: :unprocessable_entity
+        return
+      end
+    end
 
     if @property.save
       redirect_to @property, notice: "Propiedad creada con éxito."
     else
+      Rails.logger.error "Errores de validación: #{@property.errors.full_messages}"
       flash.now[:alert] = @property.errors.full_messages.join(", ")
       render :new, status: :unprocessable_entity
     end
