@@ -25,10 +25,9 @@ class PropertiesController < ApplicationController
 def create
   @property = Property.new(property_params)
 
-  # 👇 esto sube la imagen a Cloudinary y guarda la URL en photo
-  if params[:file].present?
-    upload = Cloudinary::Uploader.upload(params[:file])
-    @property.photo = upload["url"]
+  # Limpia strings vacíos de las fotos
+  if params[:property][:photos].present?
+    @property.photos.attach(params[:property][:photos].reject(&:blank?))
   end
 
   if @property.save
@@ -36,7 +35,7 @@ def create
   else
     render :new, status: :unprocessable_entity
   end
-end 
+end
 
 
   # PATCH/PUT /properties/1 or /properties/1.json
@@ -63,13 +62,12 @@ end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_property
       @property = Property.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def property_params
-      params.require(:property).permit(:direccion, :colonia, :cuartos, :banos, :extras, :precio, photos: [])
+      params.require(:property).permit(:direccion, :colonia, :cuartos, :banos, :extras, :precio)
     end
 end
