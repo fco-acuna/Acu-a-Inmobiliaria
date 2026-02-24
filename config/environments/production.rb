@@ -7,6 +7,9 @@ Rails.application.configure do
   config.enable_reloading = false
 
   
+  config.active_storage.service = :cloudinary
+
+  
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
