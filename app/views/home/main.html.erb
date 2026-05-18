@@ -18,20 +18,27 @@
     <p class="hero-tagline">Tu patrimonio, nuestra misión</p>
     
     <div class="hero-services-row">
-      <button class="hero-service-btn">
+      <%= link_to properties_path, class: "hero-service-btn" do %>
         <i class="fa-solid fa-house-circle-check"></i>
         Compra
-      </button>
-      <button class="hero-service-btn">
+      <% end %>
+
+      <%= link_to "https://wa.me/524771144958?text=Hola,%20quiero%20vender%20una%20propiedad", 
+          target: "_blank",
+          rel: "noopener",
+          class: "hero-service-btn" do %>
         <i class="fa-solid fa-hand-holding-dollar"></i>
         Vende
-      </button>
-      <button class="hero-service-btn">
+      <% end %>
+
+      <%= link_to "https://wa.me/524771144958?text=Hola,%20quiero%20traspasar%20una%20propiedad", 
+          target: "_blank",
+          rel: "noopener",
+          class: "hero-service-btn" do %>
         <i class="fa-solid fa-key"></i>
         Traspasa
-      </button>
+      <% end %>
     </div>
-  </div>
 </section>
 
 <!-- About Section -->
