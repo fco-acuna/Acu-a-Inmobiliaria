@@ -1,157 +1,394 @@
-<div class="container">
-    <div class="hero_banner">
-        <div class="hero_content">
-            <div class="logo_contuksa"></div>
+<!-- Header -->
+
+<!-- Hero con slideshow -->
+<section class="hero-dual" id="inicio">
+  <div class="hero-slideshow">
+    <div class="hero-slide active">
+      <div class="hero-image" style="background-image: url(<%= asset_path('mariel-3.jpg') %>)"></div>
+    </div>
+    <div class="hero-slide">
+      <div class="hero-image" style="background-image: url(<%= asset_path('casas-infonavit.jpeg') %>)"></div>
+    </div>
+  </div>
+  
+  <div class="hero-floating-content">
+    <h1 class="hero-logo-text">
+      <%= image_tag "logo-color-kcalli.png", alt: "Kcalli Logo", loading: "lazy" %>
+    </h1>
+    <p class="hero-tagline">Tu patrimonio, nuestra misión</p>
+    
+    <div class="hero-services-row">
+      <button class="hero-service-btn">
+        <i class="fa-solid fa-house-circle-check"></i>
+        Compra
+      </button>
+      <button class="hero-service-btn">
+        <i class="fa-solid fa-hand-holding-dollar"></i>
+        Vende
+      </button>
+      <button class="hero-service-btn">
+        <i class="fa-solid fa-key"></i>
+        Traspasa
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section" id="nosotros">
+  <div class="about-grid">
+    <div class="about-content fade-in-left">
+      <h2>Sobre Nosotros</h2>
+      <p>
+        Tenemos más de una década de experiencia en el sector inmobiliario. 
+        Ofrecemos asesoría completa en compra, venta y traspaso de propiedades 
+        con total transparencia y profesionalismo.
+      </p>
+    </div>
+
+    <div class="stats-container fade-in-right">
+      <div class="stat-box">
+        <i class="fa-solid fa-city stat-icon"></i>
+        <div class="stat-number" data-target="10">0+</div>
+        <div class="stat-label">Años de experiencia</div>
+      </div>
+      <div class="stat-box">
+        <i class="fa-solid fa-user-tie stat-icon"></i>
+        <div class="stat-number" data-target="40">0+</div>
+        <div class="stat-label">Clientes satisfechos</div>
+      </div>
+      <div class="stat-box">
+        <i class="fa-solid fa-house-chimney stat-icon"></i>
+        <div class="stat-number" data-target="20">0+</div>
+        <div class="stat-label">Propiedades entregadas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Properties Section -->
+<section class="properties-section" id="propiedades">
+  <h2 class="section-title">Propiedades Destacadas</h2>
+  
+  <div class="properties-grid">
+    <% @properties.first(4).each_with_index do |property, index| %>
+      <div class="property-card fade-in" style="animation-delay: <%= index * 0.1 %>s">
+        <div class="property-image-container" style="background-image: url('<%= cl_image_path(property.photos.first.key) %>'); background-size: cover; background-repeat: no-repeat">
+          <div class="property-badge">Venta</div>
+          <div class="property-actions">
+            <div class="property-action-btn" title="Ver detalles">
+              <i class="fa-solid fa-eye"></i>
+            </div>
+            <div class="property-action-btn" title="Favoritos">
+              <i class="fa-solid fa-heart"></i>
+            </div>
+          </div>
+        </div>
+        
+        <div class="property-info">
+          <h3 class="property-title"><%= property.direccion %></h3>
+          <div class="property-price"><%= number_to_currency(property.precio) %></div>
+          
+          <div class="property-features">
+            <div class="property-feature">
+              <i class="fa-solid fa-bed"></i>
+              <span><%= property.cuartos || 0 %></span>
+            </div>
+            <div class="property-feature">
+              <i class="fa-solid fa-bath"></i>
+              <span><%= property.banos || 0 %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="view-all-btn">
+    <a href="/properties" class="btn-primary">Ver Catálogo Completo</a>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="services-showcase">
+  <div class="services-content">
+    <div class="services-card-left fade-in-left">
+      <h2 class="services-title">Nuestros Servicios</h2>
+      <div class="services-text-right fade-in-right">
+        <div class="services-grid">
+          <% 
+            services = [
+              {
+                icon: 'fa-house-circle-check',
+                title: 'Compra',
+                description: 'Te ayudamos a encontrar la propiedad perfecta que se ajuste a tus necesidades y presupuesto. Asesoría completa en el proceso de compra, desde la búsqueda hasta la escrituración.'
+              },
+              {
+                icon: 'fa-hand-holding-dollar',
+                title: 'Venta',
+                description: 'Comercializamos tu propiedad con estrategias de marketing efectivas. Valuación profesional, publicación en múltiples plataformas y acompañamiento en todo el proceso de venta.'
+              },
+              {
+                icon: 'fa-key',
+                title: 'Traspasa',
+                description: 'Facilitamos el proceso de traspaso de tu propiedad con total seguridad jurídica. Gestión de documentación y asesoría legal para una transacción sin complicaciones.'
+              }
+            ]
+          %>
+          
+          <% services.each_with_index do |service, index| %>
+            <div class="service-item-card" data-service-index="<%= index %>">
+              <div class="service-item-header">
+                <i class="fa-solid <%= service[:icon] %> service-item-icon"></i>
+                <div class="service-item-title-wrapper">
+                  <div class="service-item-title"><%= service[:title] %></div>
+                  <i class="fa-solid fa-chevron-down service-expand-icon"></i>
+                </div>
+              </div>
+              <div class="service-item-description">
+                <%= service[:description] %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews Section -->
+<section class="reviews-section">
+  <h2 class="section-title">¿Qué dicen nuestros clientes?</h2>
+  
+  <div class="reviews-container">
+    <div class="reviews-slideshow" id="reviews-slideshow">
+      <% 
+        reviews = [
+          { name: 'María González', initial: 'MG', text: 'La verdad es que yo andaba bien perdida buscando casa, y ellos me ayudaron un montón. Lo que más me gustó es que me explicaron todo clarito, nada de letras chiquitas. 100% recomendados.' },
+          { name: 'Roberto Sánchez', initial: 'RS', text: 'Yo venía de rentar toda la vida y nunca pensé que iba a poder comprar. Ellos me echaron la mano con todo el rollo del banco y los papeles. Ya llevo 6 meses en mi casa y no me arrepiento para nada.' },
+          { name: 'Guadalupe Hernández', initial: 'GH', text: 'Compré mi casita con ellos hace poco y quedé súper contenta. Desde el principio fueron bien atentos, me contestaban rapidísimo por mensaje y me ayudaron con todo el trámite.' },
+          { name: 'Carlos Méndez', initial: 'CM', text: 'Excelente servicio desde el primer contacto. Me ayudaron a encontrar la casa perfecta para mi familia y el proceso fue muy transparente.' },
+          { name: 'Ana López', initial: 'AL', text: 'Vendí mi propiedad con ellos y el proceso fue muy rápido. Siempre estuvieron al pendiente y me mantuvieron informada de todo.' }
+        ]
+      %>
+      
+      <% reviews.each_slice(3).with_index do |review_group, slide_index| %>
+        <div class="reviews-grid <%= 'active' if slide_index == 0 %>" data-slide="<%= slide_index %>">
+          <% review_group.each do |review| %>
+            <div class="review-card">
+              <div class="review-stars">
+                <% 5.times do %>
+                  <i class="fa-solid fa-star"></i>
+                <% end %>
+              </div>
+              <p class="review-text"><%= review[:text] %></p>
+              <div class="review-author">
+                <div class="author-avatar"><%= review[:initial] %></div>
+                <div class="author-name"><%= review[:name] %></div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="slideshow-controls" id="review-dots">
+      <% (reviews.length.to_f / 3).ceil.times do |index| %>
+        <div class="slideshow-dot <%= 'active' if index == 0 %>" data-slide="<%= index %>"></div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/524771144958" target="_blank" rel="noopener noreferrer" class="whatsapp-float">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+  // Esperar a que el DOM esté listo
+  console.log('🟢 main.js CARGADO CORRECTAMENTE'); 
+  let countersAnimated = false;
+    function animateCounters() {
+      if (countersAnimated) return;
+      
+      const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+      if (statNumbers.length === 0) {
+        console.log('❌ No stat-numbers encontrados');
+        return;
+      }
+      
+      const observerOptions = { threshold: 0.5 };
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            console.log('🟢 Stats visibles - Animando números');
+            countersAnimated = true;
             
-            <div class="hero_services">
-            <div class="service_item">
-                <div class="service_icon">
-                <i class="fa-solid fa-house-circle-check"></i>
-                </div>
-                <h3>Compra</h3>
-            </div>
+            statNumbers.forEach(stat => {
+              const target = parseInt(stat.getAttribute('data-target'));
+              const duration = 2000;
+              const increment = target / (duration / 16);
+              let current = 0;
 
-            <div class="service_item">
-                <div class="service_icon">
-                <i class="fa-solid fa-hand-holding-dollar"></i>
-                </div>
-                <h3>Vende</h3>
-            </div>
-
-            <div class="service_item">
-                <div class="service_icon">
-                <i class="fa-solid fa-key"></i>
-                </div>
-                <h3>Traspasa</h3>
-            </div>
-            </div>
-        </div>
-    </div>
-    <div class="about_banner">
-        <div class="banner_informacion">
-            <h1>Sobre Nosotros</h1>
-            <p>Tenemos más de una década de experiencia en el sector inmobiliario. Ofrecemos asesoría completa en compra, venta y traspaso de propiedades con total transparencia y profesionalismo.</p>
-        </div>
-        <div class="banner_iconos">
-            <div class="iconos">
-                <div>
-                    <i class="fa-solid fa-city"></i>
-                </div>
-                <div class="icono_informacion">
-                    <p> +10 años de experiencia </p>
-                </div>
-            </div>
-            <div class="iconos">
-                <div>
-                    <i class="fa-solid fa-user-tie"></i>
-                </div>
-                <div class="icono_informacion">
-                    <p> +40 clientes satisfechos </p>
-                </div>
-            </div>
-            <div class="iconos">
-                <div>
-                    <i class="fa-solid fa-house-chimney"></i>
-                </div>
-                <div class="icono_informacion">
-                    <p>+20 propiedades entregadas</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="section_2">
-        <div class="preview_casas">
-            <% @properties.first(3).each do |property|%>
-                <div class="tarjeta_preview">
-                    <div class="imagen">
-                        <% if property.photos.attached? %>
-                        <%= image_tag(property.photos.first, class: "foto_casa") %>
-                        <% end %>
-                    </div>
-                    <div class="texto">
-                        <p><%= property.direccion %></p>
-                    </div>
-                </div>
-            <% end %>
-        </div>
-        <div class="boton_catalogo">
-            <%= link_to "Ver Catálogo Completo", properties_path, class: "boton" %>
-        </div>
-    </div>
-
-    <div class="reviews">
-        <div class="reviews_titulo">
-            <h1>¿Qué dicen nuestros clientes?</h1>
-        </div>
-        <div class="reviews_container">
-            <div class="review_tarjeta">
-                <p class="estrellas">
-                    <% 5.times do %>
-                        <i class="fa-solid fa-star"></i>
-                    <% end %>
-                </p>
-                <h3>María González</h3>
-                <p>La verdad es que yo andaba bien perdida buscando casa, y ellos me ayudaron un montón. Lo que más me gustó es que me explicaron todo clarito, nada de letras chiquitas. 100% recomendados.</p>
-            </div>
-            <div class="review_tarjeta">
-                <p class="estrellas">
-                    <% 5.times do %>
-                        <i class="fa-solid fa-star"></i>
-                    <% end %>
-                </p>
-                <h3>Roberto Sánchez</h3>
-                <p>Yo venía de rentar toda la vida y nunca pensé que iba a poder comprar. Ellos me echaron la mano con todo el rollo del banco y los papeles. Ya llevo 6 meses en mi casa y no me arrepiento para nada. La neta sí te atienden rápido y te resuelven.</p>
-            </div>
-            <div class="review_tarjeta">
-                <p class="estrellas">
-                    <% 5.times do %>
-                        <i class="fa-solid fa-star"></i>
-                    <% end %>
-                </p>
-                <h3>Guadalupe Hernádez</h3>
-                <p>Compré mi casita con ellos hace poco y quedé súper contenta. Desde el principio fueron bien atentos, me contestaban rapidísimo por mensaje y me ayudaron con todo el trámite.</p>
-            </div>
-        </div>
-    </div>
-
-
-   <section class="cta-vender">
-        <div class="cta-vender__content">
-            <h2 class="cta-vender__title">¿Necesitas ayuda con tu propiedad?</h2>
-            <p class="cta-vender__subtitle">Ofrecemos servicios completos para todas tus necesidades inmobiliarias</p>
+              const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                  stat.textContent = target + '+';
+                  clearInterval(timer);
+                } else {
+                  stat.textContent = Math.floor(current) + '+';
+                }
+              }, 16);
+            });
             
-            <div class="cta-services">
-            <div class="cta-service-item">
-                <div class="cta-service-icon">
-                <i class="fa-solid fa-house-circle-check"></i>
-                </div>
-                <span>Compra</span>
-            </div>
+            observer.disconnect();
+          }
+        });
+      }, observerOptions);
 
-            <div class="cta-service-item">
-                <div class="cta-service-icon">
-                <i class="fa-solid fa-hand-holding-dollar"></i>
-                </div>
-                <span>Vende</span>
-            </div>
+      // ✅ CORREGIDO
+      const statsContainer = document.querySelector('.stats-container');
+      if (statsContainer) {
+        console.log('🟢 Stats container encontrado');
+        observer.observe(statsContainer);
+      } else {
+        console.log('❌ Stats container NO encontrado');
+      }
+    }
+    animateCounters();
 
-            <div class="cta-service-item">
-                <div class="cta-service-icon">
-                <i class="fa-solid fa-key"></i>
-                </div>
-                <span>Traspasa</span>
-            </div>
-            </div>
-            <div style="text-align: center;">
-                <a href="https://wa.me/524771144958" target="_blank" rel="noopener noreferrer" class="cta-vender__btn">
-                <i class="fa-brands fa-whatsapp"></i>
-                Contáctanos por WhatsApp
-            </a>
-            </div>
-        </div>
+  // ===== FADE IN ANIMATIONS (CORREGIDO para usar .scrolled) =====
+    const fadeElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right');
+    const fadeObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('scrolled'); // ← Usar .scrolled del CSS
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
 
-        <div class="cta-vender__image"></div>
-    </section>
-</div>
+    fadeElements.forEach(element => {
+      fadeObserver.observe(element);
+    });
 
+    // ===== SMOOTH SCROLL PARA NAVEGACIÓN =====
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        if (targetSection && header) {
+          const headerHeight = header.offsetHeight;
+          const targetPosition = targetSection.offsetTop - headerHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
 
+    const serviceCards = document.querySelectorAll('.service-item-card');
+    serviceCards.forEach(card => {
+      card.addEventListener('click', function() {
+        const isExpanded = this.classList.contains('expanded');
+        
+        serviceCards.forEach(c => c.classList.remove('expanded'));
+        
+        if (!isExpanded) {
+          this.classList.add('expanded');
+        }
+      });
+    });
+
+  const reviewsGrids = document.querySelectorAll('.reviews-grid');
+    const reviewDots = document.querySelectorAll('.slideshow-dot');
+    
+    if (reviewsGrids.length > 0 && reviewDots.length > 0) {
+      let currentReviewSlide = 0;
+      let autoSlideInterval;
+
+      function showReviewSlide(index) {
+        // Ocultar TODOS
+        reviewsGrids.forEach(grid => {
+          grid.classList.remove('active');
+          grid.style.display = 'none';
+        });
+        
+        reviewDots.forEach(dot => dot.classList.remove('active'));
+        
+        // Mostrar el seleccionado
+        if (reviewsGrids[index]) {
+          reviewsGrids[index].classList.add('active');
+          reviewsGrids[index].style.display = 'flex';
+        }
+        
+        if (reviewDots[index]) {
+          reviewDots[index].classList.add('active');
+        }
+        
+        currentReviewSlide = index;
+      }
+
+      // CLICK DOTS (CORREGIDO)
+      reviewDots.forEach((dot, index) => {
+        dot.addEventListener('click', function(e) {
+          e.preventDefault();
+          showReviewSlide(index);
+          clearInterval(autoSlideInterval); // Pausar auto
+          // Reiniciar auto
+          autoSlideInterval = setInterval(() => {
+            currentReviewSlide = (currentReviewSlide + 1) % reviewsGrids.length;
+            showReviewSlide(currentReviewSlide);
+          }, 6000);
+        });
+      });
+
+      // Auto-slide
+      function nextReviewSlide() {
+        currentReviewSlide = (currentReviewSlide + 1) % reviewsGrids.length;
+        showReviewSlide(currentReviewSlide);
+      }
+
+      autoSlideInterval = setInterval(nextReviewSlide, 6000);
+      showReviewSlide(0); // Inicial
+    }
+
+        // ===== HEADER SCROLL =====
+    const header = document.getElementById('main-header');
+    if (header) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    }
+
+    // ===== HERO SLIDESHOW =====
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    if (heroSlides.length > 0) {
+      let currentHeroSlide = 0;
+      const totalHeroSlides = heroSlides.length;
+
+      function nextHeroSlide() {
+        heroSlides[currentHeroSlide].classList.remove('active');
+        currentHeroSlide = (currentHeroSlide + 1) % totalHeroSlides;
+        heroSlides[currentHeroSlide].classList.add('active');
+      }
+
+      setInterval(nextHeroSlide, 5000);
+    }
+
+    // ===== REVIEWS SLIDESHOW (CORREGIDO COMPLETO) =====
+    
+</script>

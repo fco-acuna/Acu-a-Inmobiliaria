@@ -1,3 +1,4 @@
+
 /* ==============================================
   🏘️ CATÁLOGO DE PROPIEDADES
 ============================================== */
@@ -105,7 +106,7 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  gap: 15px;
+  gap: 5px;
 }
 
 .property-info {
@@ -113,9 +114,8 @@
 }
 
 .property-info p {
-  margin: 12px 0;
   color: var(--negro);
-  font-size: 1.1rem;
+  font-size: 1rem;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -154,7 +154,7 @@
   justify-content: center;
   gap: 6px;
   background-color: var(--azul-base);
-  color: var(--blanco);
+  color: var(--azul-base);
   text-decoration: none;
   padding: 12px 20px;
   border-radius: 6px;
