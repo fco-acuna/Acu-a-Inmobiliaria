@@ -1,6 +1,7 @@
 /* ==============================================
-   ✏️ NEW/EDIT - Formulario de propiedad
+✏️ NEW/EDIT - Formulario de propiedad
 ============================================== */
+
 
 .property-form-page {
   background-image: url("/assets/background-neeew.png");
@@ -226,6 +227,7 @@
 ============================================== */
 
 .property-show-page {
+  margin-top: 100px;
   min-height: 100vh;
 }
 
@@ -373,9 +375,9 @@
   justify-content: center;
   gap: 12px;
   padding: 15px;
-  background: var(--gris-claro);
   border-radius: 8px;
   transition: all 0.3s ease;
+  border-bottom: 2px solid black;
 }
 
 .detail-item:hover {

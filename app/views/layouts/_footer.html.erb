@@ -1,26 +1,66 @@
-<div class="footer_container">
-    <div class="footer_logo">
+<footer class="footer" id="contacto">
+  <div class="footer-content">
+    <div class="footer-section">
+      <div class="footer-logo">
+        <%= image_tag "logo-color-kcalli.png", alt: "Kcalli Logo", loading: "lazy" %>
+      </div>
+      <p class="footer-description">
+        Nuestra misión es brindar un servicio profesional y responsable de 
+        intermediación en la compra, venta y alquiler de inmuebles.
+      </p>
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
     </div>
 
-    <div class="footer_informacion">
-        <div class="footer_detalles">
-            <div class="footer_icono">
-                <span class="material-symbols-outlined">
-                    mail
-                </span>
-            </div>
-            <div class="footer_texto">admin@gpoinmobiliariokcalli.com</div>
-        </div>
-
-    <div class="footer_detalles">
-        <div class="footer_icono">
-                <span class="material-symbols-outlined">
-                    phone_enabled
-                </span>
-            </div>
-            <div class="footer_texto">
-                (52) 477-114-49-58
-            </div>
-        </div>
+    <div class="footer-section">
+      <h3>Propiedades</h3>
+      <ul class="footer-links">
+        <li><a href="#">Casas</a></li>
+        <li><a href="#">Departamentos</a></li>
+        <li><a href="#">Terrenos</a></li>
+        <li><a href="#">Oficinas</a></li>
+        <li><a href="#">Locales</a></li>
+      </ul>
     </div>
-</div>
+
+    <div class="footer-section">
+      <h3>Empresa</h3>
+      <ul class="footer-links">
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Servicios</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Trabaja con nosotros</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Contacto</h3>
+      <div class="footer-contact-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <span>Coyoacán, Ciudad de México</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fa-solid fa-phone"></i>
+        <span>477 114 4958</span>
+      </div>
+      <div class="footer-contact-item">
+        <i class="fa-solid fa-envelope"></i>
+        <span>contacto@kcalli.com</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © <%= Date.today.year %> Kcalli Inmobiliaria. Todos los derechos reservados.
+  </div>
+</footer>

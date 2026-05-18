@@ -1,4 +1,4 @@
-<body>
+<body style="margin-top: 100px">
   <div class="catalog-header">
     <% if account_signed_in? %>
       <div class="admin-actions">
@@ -16,7 +16,7 @@
       <article class="property-card">
         <div class="index_photo">
           <% if property.photos.attached? %>
-            <%= image_tag property.photos.first, 
+            <%= cl_image_tag property.photos.first.key, 
                 alt: "Propiedad en #{property.direccion}, #{property.colonia}", 
                 class: "foto_casa",
                 loading: "lazy" %>
@@ -44,12 +44,12 @@
           </div>
 
           <div class="botones_index">
-            <%= link_to "Ver propiedad", property_path(property), class: "boton btn-view" %>
+            <%= link_to "Ver propiedad", property_path(property), class: "boton" %>
             <% whatsapp_msg = "Hola, me interesa la propiedad en #{property.direccion}" %>
             <a href="https://wa.me/524771144958?text=<%= URI.encode_www_form_component(whatsapp_msg) %>" 
+              class="boton"
               target="_blank" 
-              rel="noopener noreferrer"
-              class="boton btn-whatsapp">
+              rel="noopener noreferrer">
               <i class="fa-brands fa-whatsapp"></i> Reservar
             </a>
           </div>
