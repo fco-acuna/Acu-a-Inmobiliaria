@@ -1,17 +1,77 @@
-<header class="header" id="main-header">
-  <div class="header-content">
-    <div class="logo">
-      <%= link_to root_path do %>
-        <%= image_tag "logo-color-kcalli.png",
-            alt: "Kcalli Logo",
-            loading: "lazy" %>
-      <% end %>
-    </div>
-    <nav class="nav-menu">
-      <a href="#inicio" class="nav-link">Inicio</a>
-      <a href="#propiedades" class="nav-link">Propiedades</a>
-      <a href="#nosotros" class="nav-link">Nosotros</a>
-      <a href="#contacto" class="nav-link">Contacto</a>
-    </nav>
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="#inicio" class="nav-logo">
+      <%= image_tag "logo-color-kcalli.png", alt: "Kcalli Logo", loading: "lazy" %>
+    </a>
+    
+    <!-- Botón hamburguesa -->
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span class="hamburger"></span>
+      <span class="hamburger"></span>
+      <span class="hamburger"></span>
+    </button>
+
+    <!-- Menú de navegación -->
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <%= link_to "Inicio", root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Propiedades", properties_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <a href="#nosotros" class="nav-link">Nosotros</a>
+      </li>
+      <li class="nav-item">
+        <a href="#servicios" class="nav-link">Servicios</a>
+      </li>
+      <li class="nav-item">
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </li>
+    </ul>
   </div>
-</header>
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Toggle menu al hacer click en hamburguesa
+    navToggle.addEventListener('click', function() {
+      navToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+    });
+
+    // Cerrar menú al hacer click en un link
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      });
+    });
+
+    // Cerrar menú al hacer click fuera de él
+    document.addEventListener('click', function(event) {
+      const isClickInsideNav = navToggle.contains(event.target) || navMenu.contains(event.target);
+      
+      if (!isClickInsideNav && navMenu.classList.contains('active')) {
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      }
+    });
+
+    // Prevenir scroll cuando el menú está abierto (opcional)
+    const style = document.createElement('style');
+    style.textContent = `
+      body.menu-open {
+        overflow: hidden;
+      }
+    `;
+    document.head.appendChild(style);
+  });
+</script>
