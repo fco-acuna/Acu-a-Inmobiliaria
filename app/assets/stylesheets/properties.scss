@@ -534,6 +534,45 @@
   transform: translateY(-2px);
 }
 
+.admin-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 12px 20px;
+}
+
+.admin-btn {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 7px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  letter-spacing: 0.3px;
+}
+
+.admin-btn--primary {
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 1px solid #1a1a1a;
+}
+
+.admin-btn--primary:hover {
+  background-color: #333;
+}
+
+.admin-btn--ghost {
+  background-color: transparent;
+  color: #555;
+  border: 1px solid #ccc;
+}
+
+.admin-btn--ghost:hover {
+  background-color: #f5f5f5;
+  color: #1a1a1a;
+  border-color: #999;
+}
+
 /* ==============================================
    📱 RESPONSIVE - SHOW
 ============================================== */
